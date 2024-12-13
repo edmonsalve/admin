@@ -1,0 +1,46 @@
+/* CSS Document */
+
+.contLogin {
+	display:block;
+	margin:auto auto;
+	width:350px;
+	height:320px;
+	background-color:#FFFFFF;
+	}
+
+.contLoginId {
+	width:400px;
+	height:200px;
+	float:left;
+	background-color:#EEF1F7;
+	border:#29478D 1px solid;
+	}
+	
+.contLoginIdName {
+	width:175px;
+	height:30px;
+	float:left;
+	text-align:right;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size:14px;
+	padding-right:5px;
+	}
+	
+.contLoginIdCampo {
+	width:220px;
+	height:30px;
+	float:left;
+	}
+	
+.contMarcoLog {
+	width:350px;
+	height:200px;
+	margin-top:10px;
+	background-image:url(../img/marco.jpg); 
+	}
+	
+.contMarcoLog img {
+	float:left;
+	margin-top:50px;
+	margin-left:35px;
+	}

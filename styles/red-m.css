@@ -1,0 +1,206 @@
+/* CSS educa 
+ * 
+	* La Maquetacion de 'educa' se basa en el Framwork Blueprint
+	* esta hoja de estilos es para la particularidades.
+    
+    oolor Prduccion #346faa   5d6d7e    Linea: 20  ee6633
+*/
+
+body, h1, h2, h3 { color:#124F87; }
+h2 { font-size:18px; color:#124F87; font-weight:bold; }
+h3 { font-size:14px; margin-bottom:2px; font-weight: bold; }
+
+input { border-radius: 0.25rem; font-size: .8rem; border: 1px solid #ced4da; }
+
+input.bggris { background-color:#fafafa; }
+
+#logo { margin-top:40px; }
+#encab { float:none; width:100%; height:190px; text-align:center; background:white; } /* #263d79 color original: #5d6d7e -- lineas: 22, 23, 26, 38, 58, 59, 66  */
+#piePagina { float:none; position:absolute; top:500px; width:100%; height:120px; text-align:center; background:#124F87; } /* #263d79 */
+
+/*:::::::::::: Barra de Herramientas ::::::::::*/
+#toolsbar { float:none; width:100%; height:40px; margin-top:0; background-color:white; padding:15px 0px 15px 0px; } /* */
+
+ul.menu_sup { color:#ffffff; font-size:1.1em; text-transform:uppercase; padding-top:15px; }
+ul.menu_sup li { display:inline; margin-left:6px; }
+ul.menu_sup li a { color:#ffffff; text-decoration:none; }
+ul.menu_sup li a:hover { color:yellow; text-decoration: underline; }
+ul.menu_sup li.bordeli { border-right:1px solid #ffffff; padding-right:10px; margin-right:4px; }
+ul.menu_sup li.bordeli_ultimo { margin-right:62px; }
+
+ul.menu_lat { text-transform:uppercase; text-decoration:none; margin-top:10px; }
+ul.menu_lat li { text-decoration:none; width:120px; border-bottom:1px dotted #cccccc; margin-top:8px; list-style-type: none; font-weight:bold;}
+
+.enc_mensajes { background-color:#124F87; font-size: 12px; color:#ffffff; } /* #263d79 */
+.enc_mensajes h3 { color:#ffffff; padding: 0 0 0 0; margin:0 0 0 0; margin-left: 5px; margin-top: 3px; margin-bottom: 3px; font-size: 12px; }
+
+.cursorPoint { cursor:pointer; }
+
+.fila_impar{ color:#333333; padding-bottom:2px; border-bottom:1px dotted #f0f0f0; }
+.fila_par{ color:#333333; background:#EEF4F9; padding-bottom:2px; border-bottom:1px dotted #d0d0d0; }
+
+.datos   { padding-bottom:0px; margin-top:0.4em;}
+.derecha { text-align:right; }
+.centro  { text-align:center; }
+.bold    { font-weight: bold;}
+.gris    { background-color: #eeeeee;}
+
+.celda   { height: 20px; padding-top:2px; }
+
+.monoespacio { font-family: Courier New, Andale Mono, Courier, Nimbus Mono L, monospace }
+
+.fondo_inv { background-color:#263d79; color: #ffffff; margin-top:5px; }
+.fondo_invtabs { background-color:#263d79; color: #ffffff; margin-top:5px; }
+.fondo_invtabs h3 { color:#ffffff; padding: 0 0 0 0; margin:0 0 0 0; margin-left: 5px; margin-top: 3px; margin-bottom: 3px; font-size: 12px; }
+
+.fondo_gris { background-color:#fafafa; color: #666666; margin-top:5px; }
+.fondo_busq { background-color:#f2f2f2; color: #666666; margin-top:10px; height:45px; }
+.fondo_ttlo { background-color:#f0efde; color: #666666; margin-top:5px; height:90px; padding-top:10px; padding-left:25px; }
+.fondo_avis { background-color:#f2f2f2; color: #666666; margin-top:5px; margin-bottom:5px; height:90px; padding-top:10px; padding-left:35px;}
+
+.selectColor { color:white; font-weight:bold; padding:2px 0 2px 5px; border-bottom:2px solid white; }
+.titulosBarra  { color:#263d79; font-size:22px; margin-left:5px; margin-top:17px; font-weight: normal; background-color:#ffffff; }
+
+.barra {height:23px; padding-left:5px; padding-top:1px; padding-bottom:1px; font-size:11px; font-weight:bold; color:#eaea00; text-align:left; background-color:#124F87; } /* #263d79; */
+
+/* Botones */
+.enviar {border:1px #999999 solid; height:20px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; -moz-border-radius: 3px; webkit-border-radius: 3px; background:#dedede; font-size:12px; cursor:pointer; }
+.enviar:hover { border:1px #333333 solid; color:#ffffff; background:#5D6D7E; }
+
+.enviarpeq {background:#dedede; color:black; border:1px #999999 solid; height:18px; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}
+.enviarpeq:hover {background:#5D6D7E; color:#ffffff;  font-weight:bold;}
+
+.enviarpeqRojo {background:#e37962; color:white; border:1px #9a2005 solid; height:18px; padding:1px 0 3px 0; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}
+.enviarpeqRojo:hover { color:#ffffff;  background:#9a2005; }
+
+.enviarpeqVerde {background:#38ac3a; color:white; border:1px #04641f solid; height:18px; padding:1px 0 3px 0; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}
+.enviarpeqVerde:hover { color:#ffffff;  background:#04641f; font-weight:bold; }
+
+.enviarpeqAzul {background:#3879ac; color:white; border:1px #999999 solid; height:18px; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}
+.enviarpeqAzul:hover { color:#ffffff;  background:#29b6f6; font-weight:bold;}
+
+.enviarpeqYell {background:#ffc107; color:#000000; border:1px #ffc107 solid; height:18px; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}
+.enviarpeqYell:hover { color:#000000;  background:#ffe38f; font-weight:bold; }
+
+.enviarpeqLila {background:#dd8bde; color:#ffffff; border:1px #8b2e8d solid; height:18px; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}
+.enviarpeqLila:hover { color:#ffffff;  background:#8b2e8d; font-weight:bold; }
+
+.enviarpeqCyan {background:#1aa3c6; color:#ffffff; border:1px #2976aa solid; height:18px; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}
+.enviarpeqCyan:hover { color:#ffffff;  background:#2976aa; font-weight:bold; }
+
+.enviarpeqKhaki {background:#BDB76B; color:#ffffff; border:1px #BDB76B solid; height:18px; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}
+.enviarpeqKhaki:hover { color:#ffffff;  background:#eae7b3; font-weight:bold; }
+
+.enviarpeqDesH {background:#eaeaea; color:#ffffff; border:1px #eaeaea solid; height:18px; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}
+.enviarpeqDesH:hover { color:#ffffff;  background:#eaeaea; font-weight:bold; }
+
+.botonAuxiliarPeq {background:#FFDA91; color:#000000; border:1px #999999 solid; height:18px; width:65px; margin-top:1px;  -moz-border-radius: 3px;   font-size:10.5px; cursor:pointer;}  
+.botonAuxiliarPeq:hover { color:#000000; border:1px #cccccc solid; height:20px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#FFE24F; font-size:12px; font-weight:bold; cursor:pointer; }
+                
+.enviarSalir {color:#ffffff; border:1px #9a2005 solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#e37962; font-size:12px; font-weight:bold; cursor:pointer; }
+.enviarSalir:hover {border:1px #cccccc solid; background:#9a2005; font-weight:bold; cursor:pointer; }
+
+.enviarGrande {color:#ffffff; border:1px #03bd37 solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#38ac3a; font-size:12px; font-weight:bold; cursor:pointer; }
+.enviarGrande:hover {border:1px #04641f solid; background:#04641f; }	
+
+.enviarOrange {color:#ffffff; border:1px #052843 solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#ff7f27; font-size:12px; font-weight:bold; cursor:pointer; }    
+.enviarOrange:hover {border:1px #ff7f27 solid; background:#ffca18; }
+
+.enviarLila {color:#ffffff; border:1px #dd8bde solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#8b2e8d; font-size:12px; font-weight:bold; cursor:pointer; }    
+.enviarLila:hover {border:1px #ff7f27 solid; background:#dd8bde; }
+
+.enviarBuscar {color:#ffffff; border:1px #052843 solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#3879ac; font-size:12px; font-weight:bold; cursor:pointer; }    
+.enviarBuscar:hover {border:1px #052843 solid; background:#29b6f6; }
+
+.enviarCerrar {color:#ffffff; border:1px #3f3939 solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#585858; font-size:12px; font-weight:bold; cursor:pointer; }
+.enviarCerrar:hover {border:1px #3f3939 solid; background:#3f3939; }
+
+.enviarDeshab {color:#ffffff; border:1px #eaeaea solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#eaeaea; font-size:12px; font-weight:bold; cursor:pointer; }
+.enviarDeshab:hover {border:1px #3f3939 solid; background:#eaeaea; }
+
+.enviarKhaki {color:#000000; border:1px #BDB76B solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#eae7b3; font-size:12px; font-weight:bold; cursor:pointer; }
+.enviarKhaki:hover {border:1px #BDB76B solid; background:#BDB76B; }
+
+.enviarYellow {color:#000000; border:1px #ffe38f solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#ffc107; font-size:12px; font-weight:bold; cursor:pointer; }
+.enviarYellow:hover {border:1px #ffe38f solid; background:#ffe38f; }
+
+.botonAuxiliar {color:#000000; border:1px #aaaaaa solid; height:30px; margin-left:10px; margin-top:3px; padding-bottom:3px; padding-left:15px; padding-right:15px; background:#FFDA91; font-size:12px; cursor:pointer; }
+.botonAuxiliar:hover {border:1px #cccccc solid; background:#FFE24F; font-weight:bold; }
+        
+
+/* ::::::::::::::::::::::: PAGINACION :::::::::::::::::::::::::::: */ 
+ul.paginacion { color:#5d6d7e;margin: 4px 0 0 0; cursor:pointer; }
+ul.paginacion li { display:inline; margin-left:2px; width:30px; font-size:1.3em; }
+ul.paginacion li a { color:#5d6d7e; text-decoration:none; padding:0 6px 0 6px; }
+ul.paginacion li a:hover { background:#5d6d7e; color:#ffffff; }
+
+input.sombra {
+	text-shadow: 0px 1px 0px #fff;
+	-webkit-box-shadow: 1px 1px 0px #fcfcfc;
+	-moz-box-shadow: 1px 1px 0px #fcfcfc;
+	box-shadow:  1px 1px 0px #fcfcfc;
+}
+
+input.sombra:focus {
+	background: -webkit-gradient(linear, left top, left bottom, from(#ebebee), to(#ffffff));
+	background: -moz-linear-gradient(top,  #ebebee,  #ffffff);
+	-webkit-box-shadow: 0px 0px 3px #007eff;
+	-moz-box-shadow: 0px 0px 3px #007eff;
+	box-shadow: 0px 0px 3px #007eff;
+	}
+
+input.sombra:hover {
+	-webkit-box-shadow: 0px 0px 3px #007eff;
+	-moz-box-shadow: 0px 0px 3px #007eff;
+	box-shadow: 0px 0px 3px #007eff;
+	}
+
+div.sombra:hover {
+	-webkit-box-shadow: 0px 0px 3px #007eff;
+	-moz-box-shadow: 0px 0px 3px #007eff;
+	box-shadow: 0px 0px 3px #007eff; 
+}
+    
+
+.textAreaDcto {
+    width:  720px;
+    height: 365px;
+    resize: none;
+}
+
+.grandeVerde {color:green; font-size: 50px; }
+.grandeRojo {color:red; font-size: 50px; }
+.grandeGris {color:gray; font-size: 50px; }
+.grandeAzul {color:blue; font-size: 50px;}
+
+.medianoVerde {color: green; font-size: 30px; }
+.medianoAzul {color: blue; font-size: 30px; }
+.medianoRojo {color: red; font-size: 30px; }
+.medianoGris {color: gray; font-size: 30px; }
+.medianoNegro {color: black; font-size: 30px;}
+
+.peqVerde {color:green; font-size: 18px; }
+.peqNegro {color: black; font-size: 14px; }
+.peqAzul {color: blue; font-size: 14px; }
+.peqRojo {color:red;font-size: 14px; }
+.peqGris {color:gray; font-size: 14px; }
+
+.negro {color:black; font-weight: bold; }
+.gris {color:silver; font-weight: bold; }
+.grisOscuro {color:#5D6D7E; font-weight: bold; }
+.rojo {color:red; font-weight: bold; }
+.azul {color:blue; font-weight: bold; }
+.verde {color: green; font-weight: bold; }
+.amarillo {color: yellow; font-weight: bold; }
+.blanco { color: white; font-weight: bold; }
+
+input.fondoCyan {background-color:AliceBlue; }
+input.grandeAzul {color:blue; font-size: 50px; }
+
+a.menuSistema {color: #5D6D7E; font-size:12px; text-decoration:none; }
+
+.inline{ max-width:220px; margin:auto; }
+.input-icons i { position: absolute; }         
+.input-icons { width: 100%; margin-bottom: 10px; }          
+.icon { padding: 10px; min-width: 40px; }          
+.input-field { width: 100%; padding: 10px; text-align: center; margin-bottom: 3px; }

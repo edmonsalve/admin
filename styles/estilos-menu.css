@@ -1,0 +1,56 @@
+/* CSS Document */
+
+.contMenuGr {
+	display:block;
+	margin:auto auto;
+	width:650px;
+	height:570px;
+	background-color:#FFFFFF;
+	}
+
+.contLoginId {
+	width:400px;
+	height:200px;
+	float:left;
+	background-color:#EEF1F7;
+	border:#29478D 1px solid;
+	}
+	
+.contLoginIdName {
+	width:175px;
+	height:30px;
+	float:left;
+	text-align:right;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:16px;
+	padding-right:5px;
+	}
+	
+.contLoginIdCampo {
+	width:220px;
+	height:30px;
+	float:left;
+	}
+	
+.contMarcoLog {
+	display:block;
+	width:650px;
+	height:455px;
+	margin-top:10px;
+	padding-top:5px;
+	background:url(../img/marco-gr.jpg) no-repeat;
+	}
+	
+.contMarcoLog img {
+	float:left;
+	margin-top:50px;
+	margin-left:40px;
+	}
+	
+.contMenuSist {
+	width:620px;
+	height:420px;
+	overflow:hidden;
+	margin-left:15px;
+	margin-top:15px;
+	}

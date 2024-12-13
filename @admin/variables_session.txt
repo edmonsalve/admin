@@ -1,0 +1,28 @@
+VARIABLES DE SESSION
+====================
+
+movil               => 0/1
+
+sistMuni            => S/N
+sistEduc            => S/N
+sistSalud           => S/N
+sistComer           => S/N
+
+licencia            => NOMBRE CLIENTE
+rut                 => 086498189
+keynumber           => C0DFB-A739A-8742D-E7B86-5FBAC
+modulos             => 120102103104105106107108109202
+valid               => 2012-02-20
+
+estadoAplicacion    => A/I      (Activo / Inactivo)
+modalidadAplicacion => C/A      (Compra / Alquiler)
+
+idUser              => edmonsalve
+usuario             => Edmundo Monsalve
+tipo                => 4/6/7
+foto                => edmonsalve.png
+id_usr              => edmonsalve
+usrMuni             => S/N
+usrEduc             => S/N
+usrSalud            => S/N
+usrComer            => S/N
