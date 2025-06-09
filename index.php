@@ -31,4 +31,5 @@
 					));
 			
 	echo $contenido->muestra();  
+	echo "alooo!";
 ?>
