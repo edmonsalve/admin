@@ -1,0 +1,52 @@
+:root {
+    --azul800: #3879AC;
+    --blanco: #FFFFFF;
+    --semibold: 500;
+    --bold: 700;
+    --azul100: #cdf9ff;
+    --azul400: #1accf6;
+    --gris300: #BDBDBD;
+    --gris400: #989898;
+}
+
+.toggle-input {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+.toggle-label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 60px;
+    height: 30px;
+    background: var(--gris400);
+    display: block;
+    border-radius: 30px;
+    position: relative;
+}
+
+.toggle-label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 24px;
+    transition: 0.3s;
+}
+
+.toggle-input:checked + .toggle-label {
+    background: var(--azul800);
+}
+
+.toggle-input:checked + .toggle-label:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
+
+.toggle-label:active:after {
+    width: 36px;
+}

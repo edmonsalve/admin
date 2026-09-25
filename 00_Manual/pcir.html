@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <link rel="icon" type="image/png" href="/images/icoDC.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ayuda a la correcta visualización en dispositivos móviles. -->
+        <meta name="author" content="Felipe Monsalve" />
+        <title>DCode | Manual de Usuario</title>
+        <meta name="description" content="Permisos de Circulación">
+
+        <!-- Fuentes -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <!-- Normalize -->
+        <link rel="Preload" href="css/normalize.css" as="style">
+        <link rel="stylesheet" href="css/normalize.css">
+        
+        <!-- Estilos -->
+        <link rel="Preload" href="css/style.css" as="style">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/parallax.min.js"></script>
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+        
+        <header class="header">
+            <div class="superior">
+                <a class="superior__altura" href="index.html"><img class="superior__imagen" src="logos/dcode.png" alt="Logo"></a>
+                <h1 class="superior__titulo">Manual de usuario</h1>
+            </div>
+            <div class="contenedor">
+                <nav class="navegacion">
+                    <a href="index.html" class="navegacion__enlace" title="Inicio">Inicio</a>
+                    <a href="pcir.html" class="navegacion__enlace navegacion__enlace--actual" title="Funcionalidad de permisos de circulación">Permisos de Circulación</a>
+                    <a href="gdoc.html" class="navegacion__enlace" title="Funcionalidad de gestión documental">Gestión Documental</a>
+                    <!--
+                    <a href="#" class="navegacion__enlace" title="Funcionalidad de permisos de ayudas sociales">Ayudas Sociales</a>
+                    <a href="#" class="navegacion__enlace" title="Funcionalidad de permisos de honorarios">Honorarios</a>
+                    <a href="#" class="navegacion__enlace" title="Funcionalidad de permisos de remuneraciones">Remuneraciones</a>
+                    -->
+                </nav>
+            </div>
+        </header><!-- Fin header. -->
+        <span class="display">
+		<main class="cuerpo">
+			<div class="contenedor contenedor--grid">
+                <!-- INDICE DE CONTENIDOS DE LA SECCIÓN -->
+                <div class="contenedor__izquierda">
+                    <div class="menuLateral">
+                        <h2>Contenidos</h2>
+                        <ul id="menu" class="contenido__lista">
+                            <li><a id="link-section1" class="navegacion__enlace menu_vertical" href="#section1">Funciones del sistema</a></li>
+                            <li><a id="link-section2" class="navegacion__enlace menu_vertical" href="#section2">Propietarios y vehículos</a></li>
+                            <li><a id="link-section3" class="navegacion__enlace menu_vertical" href="#section3">Exportación a XLS/Texto plano</a></li>
+                            <li><a id="link-section4" class="navegacion__enlace menu_vertical" href="#section4">Configuración tablas del sistema</a></li>
+                            <li><a id="link-section5" class="navegacion__enlace menu_vertical" href="#section5">Informes</a></li>
+                            <li><a id="link-section6" class="navegacion__enlace menu_vertical" href="#section6">Módulos de administrador de sistema</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CONTENIDO DE LA SECCIÓN -->
+                <div class="contenedor__derecha">
+                    <a name="arriba"></a>
+                    <h2>Permisos de Circulación</h2>
+                    
+                    <a name="section1"></a> 
+                    <section id="section1" class="contenido">
+                        <h3>Funciones del sistema</h3>
+                        <p class="contenido__parrafo">
+                            Al presionar sobre el ícono de <span class="cursiva">Permisos de Circulación</span> de la pantalla principal de la plataforma, se accederá a sistema que los gestiona. Desde él se podrán realizar las siguientes acciones:
+                        </p>
+
+                        <ul class="contenido__lista">
+                            <li>Mantenimiento de movimientos:
+                                <ul class="contenido__lista sublista">
+                                    <li>Consultar, modificar y crear registros de propietarios.</li>
+                                    <li>Consultar, modificar y crear registros de vehículos.</li>
+                                    <li>Calcular permisos de circulación.</li>
+                                    <li>Consultar permisos de circulación emitidos.</li>
+                                    <li>Exportación de comprobantes de pago en formato PDF.</li>
+                                </ul>
+                            </li>
+                            <li>Exportación de registros en formato Microsoft Excel y texto plano.</li>
+                            <li>Configuración del sistema:
+                                <ul class="contenido__lista sublista">
+                                    <li>Compañías de seguros.</li>
+                                    <li>Ítems de multas de contabilidad.</li>
+                                    <li>Marcas de vahículos.</li>
+                                    <li>Administración de placas bloqueadas.</li>
+                                    <li>Plantas de revisión técnica.</li>
+                                    <li>Tipos de sellos.</li>
+                                    <li>Tipos de vehículos.</li>
+                                    <li>Trámites.</li>
+                                    <li>Tramos de tasaciones.</li>
+                                </ul>
+                            </li>
+                            <li>Exportación de informes en formato PDF.</li>
+                            <li>Módulos para el administrador del sistema:
+                                <ul class="contenido__lista sublista">
+                                    <li>Actualización de multas con archivo SRCel.</li>
+                                    <li>Actualizar multas pagadas.</li>
+                                    <li>Actualizar número de ingreso multas pagadas - SIFIM.</li>
+                                    <li>Anular pago de permisos.</li>
+                                    <li>Multas pagadas en otro Municipio y anulación de pago.</li>
+                                    <li>Parámetros anuales pagos.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <p class="contenido__parrafo">
+                            Las distintas secciones del sistema se encuentran en la barra lateral de opciones, situada a la izquierda de la pantalla:
+                        </p>
+
+                        <img class="contenido__img" src="img/pcir/pcir_01_principal.png" alt="Secciones del sistema de Permisos de Circulación" title="Secciones del sistema de Permisos de Circulación">
+                        <p class="subtitulo cursiva">Secciones del sistema de Permisos de Circulación</p>
+                        
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section><!-- Fin qué son fases. -->
+
+                    <a name="section2"></a>
+                    <section id="section2" class="contenido">
+                        <h3>Propietarios y vehículos</h3>
+                        <p class="contenido__parrafo">
+                            Se trata de la primera sección de la barra lateral y a la que se accede por defecto al entrar al sistema de <span class="cursiva">Permisos de Circulación</span>. Desde esta parte del sistema se pueden consultar los permisos de circulación. La información se encuentra estructurada en base a propietarios y en base a vehículos, que corresponden con las dos pestaás superiores:
+                        </p>
+
+                        <div class="contenido--60">
+                            <img class="contenido__img" src="img/pcir/pcir_02_detalle.png" alt="Pestañas de propietarios y vehículos" title="Pestañas de propietarios y vehículos">
+                            <p class="subtitulo cursiva">Pestañas principales de sección de propietarios y vehículos</span></p>
+                        </div>
+                        
+
+                        <p class="contenido__parrafo">
+                            Al acceder a <span class="cursiva">Permisos de Circulación</span>, la información estará mostrada en base a vehículos, el sistema permite:
+                        </p>
+                        <ul class="contenido__lista">
+                            <li>Filtrar los elementos de la tabla, buscando por placa, RUT o marca.</li>
+                            <li>Para cada uno delos registros de la tabla se puede:
+                                <ul class="contenido__lista sublista">
+                                    <li>Editar los datos del vehículo.</li>
+                                    <li>Eliminar el registro.</li>
+                                    <li>Consultar los datos del propietario.</li>
+                                    <li>Consultar sus permisos de circulación.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <p class="contenido__parrafo">
+                            Debajo de la tabla, en la zona izquierda, se sitúa el navegador de páginas de la tabla.
+                        </p>
+
+                        <img class="contenido__img" src="img/pcir/pcir_03_movimientos.png" alt="Pantalla de Permisos de Circulación según vehículos" title="Pantalla de Permisos de Circulación según vehículos">
+                        <p class="subtitulo cursiva">Pantalla de Permisos de Circulación según vehículos</p>
+
+                        <h4>Editar datos del vehículo</h4>
+                        <p class="contenido__parrafo">
+                            Al presionar sobre el ícono de edición del registro, se podrá acceder a los datos del vehículo para su consulta o modificación:
+                        </p>
+                        
+                        <img class="contenido__img" src="img/pcir/pcir_04_ficha_vehiculo.png" alt="Formulario de detalle de ficha de vehículo" title="Formulario de detalle de ficha de vehículo">
+                        <p class="subtitulo cursiva">Formulario de detalle de ficha de vehículo</p>
+
+                        <h4>Datos del propietario</h4>
+                        <p class="contenido__parrafo">
+                            Al pulsar sobre el ícono del propietario del vehículo, se desplegará un formulario que permite ver el propietario actual del vehículo así como asignarle uno nuevo. Para indicar un nuevo propietario, se debe introducir el RUT del nuevo dueño y el sistema completará automaticamente el dígito verificador y el nombre completo.
+                        </p>
+                        <img class="contenido__img" src="img/pcir/pcir_05_datos.png" alt="Desplegable con los datos básicos del vehículo y propietario" title="Desplegable con los datos básicos del vehículo y propietario">
+                        <p class="subtitulo cursiva">Desplegable con los datos básicos del vehículo y propietario</p>
+                        
+                        <h4>Consulta de permisos de circulación</h4>
+                        <p class="contenido__parrafo">
+                            Al acceder a los datos, desde el botón "Permisos Vehículos", del permiso de circulación se podrán consultar los datos del vehículo así como establecer los parámetros para la emisión del siguiente permiso de circulación. La información está clasificada en tres grupos:
+                        </p>
+                        <ul class="contenido__lista">
+                            <li><span class="negrita">Identificación vehículo & propietario:</span> datos básicos de identificación del vehículo y su propietario.</li>
+                            <li><span class="negrita">Datos cálculo permiso:</span> parámetros de cálculo del permiso de circulación del vehículo. Dentro de esta sección se disponen las siguientes opciones:
+                                <ul class="contenido__lista sublista">
+                                    <li><span class="negrita">Calcular permiso:</span> calcula el importe del permiso de circulación.</li>
+                                    <li><span class="negrita">Envía ingreso:</span> envía el ingreso a Tesorería Municipal para proceder al pago y emite el permiso de circulación.</li>
+                                    <li><span class="negrita">Pagar c/ convenio:</span> genera pagos acogidos al convenio de pago de acuerdo con la ley.</li>
+                                    <li><span class="negrita">Pagado en tercero:</span> para emisión de permisos de circulación pagados en otra Municipalidad.</li>
+                                </ul>
+                            </li>
+                            <li><span class="negrita">Historial pagos:</span> acceso al historial de permisos de circulación emitidos para el vehículo. Pulsando en el ícono de la impresora (en la columna acciones) se pueden visualizar en la zona derecha de la pantalla.</li>
+                        </ul>
+
+                        <img class="contenido__img" src="img/pcir/pcir_06.1_detalle_permisos.png" alt="Botón de acceso a permisos de circulación" title="Botón de acceso a permisos de circulación">
+                        <p class="subtitulo cursiva">Botón de acceso a permisos de circulación</p>
+
+                        <img class="contenido__img" src="img/pcir/pcir_06_detalle_permisos.png" alt="Detalle de permisos de circulación del vehiculo" title="Detalle de permisos de circulación del vehiculo">
+                        <p class="subtitulo cursiva">Detalle de permisos de circulación del vehiculo</p>
+
+                        <h4>Consulta por propietarios</h4>
+                        <p class="contenido__parrafo">
+                            Al pulsar el pestaña de <span class="negrita">Propietarios</span> se accederá al <span class="negrita">Mantenedor de Propietarios</span>, en la que se presentará una tabla con todos los propietarios del sistema.
+                        </p>
+
+                        <div class="contenido--60">
+                            <img class="contenido__img" src="img/pcir/pcir_07_detalle_2.png" alt="Selección de pestaña de propietarios" title="Selección de pestaña de propietarios">
+                            <p class="subtitulo cursiva">Selección de pestaña de propietarios</span></p>
+                        </div>
+
+                        <p class="contenido__parrafo">
+                            En <span class="negrita">Mantenedor de Propietarios</span> se dispone de las siguientes herramientas:
+                        </p>
+
+                        <ul class="contenido__lista">
+                            <li>
+                                Filtrado por:
+                                <ul class="contenido__lista sublista">
+                                    <li>Nombre del propietario.</li>
+                                    <li>RUT.</li>
+                                </ul>
+                            </li>
+                            <li>Alta de un nuevo propietario.</li>
+                            <li>Tabla con la información de los propietarios: RUT, nombre y dirección.</li>
+                            <li>
+                                Columna de acciones (a la derecha):
+                                <ul class="contenido__lista sublista">
+                                    <li><span class="negrita">Edición:</span> apertura de un formulario que permite consultar y editar los datos del propietario.</li>
+                                    <li><span class="negrita">Eliminar:</span> borrado del registro.</li>
+                                    <li><span class="negrita">Vehículos:</span> consulta de lo vehículos asociados al propietario. Al presionar este botón, se accederá al listado de vehículos con las herramientas vistas anteriormente, filtrado por el propietario seleccionado.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <p class="contenido__parrafo">
+                            Debajo de la tabla, en la zona izquierda, se sitúa el navegador de páginas de la tabla.
+                        </p>
+
+                        <img class="contenido__img" src="img/pcir/pcir_08_propietarios.png" alt="Pantalla de Permisos de Circulación según propietarios" title="Pantalla de Permisos de Circulación según propietarios">
+                        <p class="subtitulo cursiva">Pantalla de Permisos de Circulación según propietarios</p>
+
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section><!-- Fin detalle fase -->
+
+                    <a name="section3"></a>
+                    <section id="section3" class="contenido">
+                        <h3>Exportación a XLS/Texto plano</h3>
+                        <p class="contenido__parrafo">
+                            En la sección de exportación de información del sistema se ponen a disposición de los usuarios las siguientes configuraciones:
+                        </p>
+                        <ul class="contenido__lista">
+                            <li>
+                                Exportación archivos SEM:
+                                <ul class="contenido__lista sublista">
+                                    <li><span class="negrita">SEM2 - BDUN:</span> planilla Excel con Base de Datos Única Nacional.</li>
+                                    <li><span class="negrita">SEM2 - Locomoción Colectiva:</span> planilla Excel con locomoción colectiva.</li>
+                                    <li><span class="negrita">SEM2 - Vehículos livianos:</span> planilla Excel con vehículos livianos.</li>
+                                    <li><span class="negrita">SEM2 - Vehículos pesados:</span> planilla Excel con vehículos pesados.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Exportación:
+                                <ul class="contenido__lista sublista">
+                                    <li><span class="negrita">INE:</span> planilla Excel con información del Instituto Nacional de Estadísticas.</li>
+                                    <li><span class="negrita">Ingresos Diarios:</span> planilla Excel con ingresos diarios por rangos de fechas seleccionados.</li>
+                                    <li><span class="negrita">PDI:</span> archivo Excel por fechas.</li>
+                                    <li><span class="negrita">RNMT:</span> archivo de texto plano para el registro nacional de multas de tránsito.</li>
+                                    <li><span class="negrita">RNMT otros Municipios:</span> archivo de texto plano.</li>
+                                    <li><span class="negrita">Ingresos Subdere:</span> ingresos por permisos SUBDERE por rango de fechas.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <img class="contenido__img" src="img/pcir/pcir_09_Exportaciones.png" alt="Pantalla de exportación de informes" title="Pantalla de exportación de informes">
+                        <p class="subtitulo cursiva">Pantalla de exportación de informes</p>
+
+                        <p class="contenido__parrafo">
+                            Al presionar sobre los respectivos informes se abrirá un formulario para indicar los parámetros de exportación del documento, como el rango de fechas.
+                        </p>
+
+                        <div class="contenido--60">
+                            <img class="contenido__img" src="img/pcir/pcir_10_Formulario.png" alt="Formulario de parametrización de exportación" title="Formulario de parametrización de exportación">
+                            <p class="subtitulo cursiva">Formulario de parametrización de exportación</span></p>
+                        </div>
+
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section><!-- Fin secuencias/zonas -->
+
+                    <a name="section4"></a>
+                    <section id="section4" class="contenido">
+                        <h3>Configuración tablas del sistema</h3>
+                        <p class="contenido__parrafo">
+                            Esta sección es la dedicada al mantenimiento de las tablas del sistema, en las cuales se pueden actualizar los valores disponibles para los diferenetes rangos de seleccionables o categorizaciones dentro del sistema, tales como:
+                        </p>
+
+                        <ul class="contenido__lista">
+                            <li>Compañías de seguros.</li>
+                            <li>Ítems de multas de contabilidad.</li>
+                            <li>Marcas de vahículos.</li>
+                            <li>Placas bloqueadas.</li>
+                            <li>Plantas de revisión técnica.</li>
+                            <li>Tipos de sellos.</li>
+                            <li>Tipos de vehículos.</li>
+                            <li>Trámites.</li>
+                            <li>Tramos trasaciones.</li>
+                        </ul>
+
+                        <img class="contenido__img" src="img/pcir/pcir_11_Configuracion.png" alt="Listado de tablas disponibles para configuración" title="Listado de tablas disponibles para configuración">
+                        <p class="subtitulo cursiva">Listado de tablas disponibles para configuración</p>
+
+                        <p class="contenido__parrafo">
+                            Al acceder a uno de los menús de configuración se abrirá una tabla con los parámetros correspondientes a dicha opción. En esta pantalla se dispondrá de:
+                        </p>
+
+                        <ul class="contenido__lista">
+                            <li>Campos de filtrado.</li>
+                            <li>Alta de nuevas opciones.</li>
+                            <li>Edición y borrado de registros.</li>
+                        </ul>
+
+                        <img class="contenido__img" src="img/pcir/pcir_12_Edicion.png" alt="Configuración de registros" title="Configuración de registros">
+                        <p class="subtitulo cursiva">Configuración de registros</p>
+
+                        <p class="contenido__parrafo">
+                           Al presionar sobre el botón de "Nuevo" se abrirá un formulario para poder realizar el registro, en caso de pulsar el botón de edición se abrirá con los campos con los valores correspondientes.
+                        </p>
+
+                        <img class="contenido__img" src="img/pcir/pcir_13_Editar_registro.png" alt="Fila de edición de registro activa" title="Fila de edición de registro activa">
+                        <p class="subtitulo cursiva">Fila de edición de registro activa</p>
+
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section><!-- Fin actividades -->
+
+                    <a name="section5"></a>
+                    <section id="section5" class="contenido">
+                        <h3>Informes</h3>
+                        <p class="contenido__parrafo">
+                            En esta sección del sistema de <span class="cursiva">Permisos de Circulación</span> se encuentran predefinidos informes para su exportación en formato PDF, ordenados en dos grupos:
+                        </p>
+
+                        <ul class="contenido__lista">
+                            <li>
+                                Informes:
+                                <ul class="contenido__lista sublista">
+                                    <li>Histórico de permisos.</li>
+                                    <li>Vehículos de la comuna.</li>
+                                    <li>Vehículos de otras comunas.</li>
+                                    <li>Vehículos por placa.</li>
+                                    <li>Vehículos sin Código SII.</li>
+                                    <li>Traslados por fecha.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Informes de control:
+                                <ul class="contenido__lista sublista">
+                                    <li>Fondo de terceros.</li>
+                                    <li>Ingresos diarios.</li>
+                                    <li>Ingresos diarios por usuario.</li>
+                                    <li>Morosos pago 2da cuota.</li>
+                                    <li>Multas por pagar.</li>
+                                    <li>Pagos primera cuota.</li>
+                                    <li>Pagos segunda cuota.</li>
+                                    <li>Pagos totales.</li>
+                                    <li>Permisos anulados.</li>
+                                    <li>Permisos por periodo de pago.</li>
+                                    <li>Primer permiso factura.</li>
+                                    <li>Recibidos desde SUBDERE.</li>
+                                    <li>Resumen fondo terceros.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <p class="contenido__parrafo">
+                            La pantalla de esta sección de la aplicación se encuentra divida en dos secciones, en la mitad izquierda se muestra el listado de informes disponibles y, en la mitad derecha, se muestra una previsualización del informe generado previo a su descarga en formato PDF.
+                        </p>
+
+                        <img class="contenido__img" src="img/pcir/pcir_14_Informes.png" alt="Sección de informes de Permisos de Circulación" title="Sección de informes de Permisos de Circulación">
+                        <p class="subtitulo cursiva">Sección de informes de Permisos de Circulación</p>
+
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section><!-- Fin actividades -->
+
+                    <a name="section6"></a>
+                    <section id="section6" class="contenido">
+                        <h3>Módulos de administrador de sistema</h3>
+                        <p class="contenido__parrafo">
+                            En este menú se encuentran la funciones que se reservan para los usuarios con privilegios de administrador:
+                        </p>
+                        
+                        <ul class="contenido__lista">
+                            <li>Actualización multas con archivo SRCel.</li>
+                            <li>Actualizar multas pagadas.</li>
+                            <li>Actualizar número ingreso multas pagadas - SIFIM.</li>
+                            <li>Actualizar número ingreso permisos - SIFIM.</li>
+                            <li>Anular pago permiso.</li>
+                            <li>Multas pagadas en otro municipio y anular pago.</li>
+                            <li>Parámetros anuales pagos.</li>
+                        </ul>
+
+                        <img class="contenido__img" src="img/pcir/pcir_16_Administrador.png" alt="Herramientas para administradores" title="Herramientas para administradores">
+                        <p class="subtitulo cursiva">Herramientas para administradores</p>
+                        
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section><!-- Fin actividades -->
+
+                    <!--
+                    <a name=""></a>
+                    <section class="contenido">
+                        <h3>Tilulo del contenido</h3>
+                        <p class="contenido__parrafo">
+                            Párrafo del contenido.
+                            <div class="contenido__blqCentrador">
+                                <div class="blqCentrado__centrado">
+                                    <img class="contenido__img" src="img/03_Usuarios/usuarios.png" alt="seleccionUsuarios" title="Pantalla de selección de usuarios">
+                                    <p class="subtitulo cursiva">Pantalla de selección y asignación de usuarios al proyecto</p>
+                                </div>
+                            </div>
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section>--><!-- Fin contenido -->
+                </div> <!-- Fin de contenidos. -->
+            </div>
+		</main><!-- Fin main. -->
+
+		<footer class="contenedor footer">
+            <span class="footer__texto">DCODE - Chile <span id="currentYear"></span></span>
+            <img class="footer__imagen" src="logos/dcode_logo.png" alt="Logo">
+        </footer><!-- Fin footer. -->
+    </span>
+    <script>
+        readyLightbox();
+    </script>
+    </body><!-- Fin body. -->
+</html><!-- Fin documento. -->

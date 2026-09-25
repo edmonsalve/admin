@@ -1,0 +1,39 @@
+{
+    "name": "nguyenanhung/nusoap",
+    "type": "library",
+    "description": "My nuSOAP Library, fix code for for PHP 8.2 <=> 5.4",
+    "keywords": [
+        "soap",
+        "nusoap"
+    ],
+    "homepage": "https://github.com/nguyenanhung/nusoap",
+    "license": "LGPL-2.1-only",
+    "authors": [
+        {
+            "name": "Dietrich Ayala",
+            "homepage": "https://sourceforge.net/u/dietricha/profile/"
+        },
+        {
+            "name": "Scott Nichol",
+            "homepage": "https://sourceforge.net/u/snichol/profile/"
+        },
+        {
+            "name": "Nguyen An Hung",
+            "email": "dev@nguyenanhung.com",
+            "homepage": "https://nguyenanhung.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "nguyenanhung\\MyNuSOAP\\": "src/",
+            "nguyenanhung\\MyFixNuSOAP\\": "fixed/"
+        },
+        "files": [
+            "helpers/functions.php"
+        ]
+    }
+}

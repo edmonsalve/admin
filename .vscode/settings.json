@@ -1,0 +1,36 @@
+{
+  "workbench.colorCustomizations": {
+    "gitRepoWindowColors.elements": [
+      "statusBar"
+    ],
+    "window.customTitleBarVisibility": "auto",
+    "window.titleBarStyle": "custom",
+    "gitRepoWindowColors.branchRules": [
+      "desarrollo:#FFA500",
+      "mantenimiento:#0000FF",
+      "main:#0000FF"
+    ],
+    "windowColors.repoConfigurationList": [
+      "*:orange[/desarrollo] *:blue[/mantenimiento] *:green[/main]"
+    ],
+    "activityBar.activeBackground": "#114698",
+    "activityBar.background": "#114698",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#1d030d",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#114698",
+    "statusBar.background": "#0c316a",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#114698",
+    "statusBarItem.remoteBackground": "#0c316a",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#0c316a",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#0c316a99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.remoteColor": "#0C316A",
+  "peacock.color": "#0000FF"
+}

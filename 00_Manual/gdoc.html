@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <link rel="icon" type="image/png" href="/images/icoDC.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ayuda a la correcta visualización en dispositivos móviles. -->
+        <meta name="author" content="Felipe Monsalve" />
+        <title>DCode | Manual de Usuario</title>
+        <meta name="description" content="Permisos de Circulación">
+
+        <!-- Fuentes -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <!-- Normalize -->
+        <link rel="Preload" href="css/normalize.css" as="style">
+        <link rel="stylesheet" href="css/normalize.css">
+        
+        <!-- Estilos -->
+        <link rel="Preload" href="css/style.css" as="style">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/parallax.min.js"></script>
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+        
+        <header class="header">
+            <div class="superior">
+                <a class="superior__altura" href="index.html"><img class="superior__imagen" src="logos/dcode.png" alt="Logo"></a>
+                <h1 class="superior__titulo">Manual de usuario</h1>
+            </div>
+            <div class="contenedor">
+                <nav class="navegacion">
+                    <a href="index.html" class="navegacion__enlace" title="Inicio">Inicio</a>
+                    <a href="pcir.html" class="navegacion__enlace" title="Funcionalidad de permisos de circulación">Permisos de Circulación</a>
+                    <a href="gdoc.html" class="navegacion__enlace navegacion__enlace--actual" title="Funcionalidad de gestión documental">Gestión Documental</a>
+                    <!--
+                    <a href="#" class="navegacion__enlace" title="Funcionalidad de permisos de ayudas sociales">Ayudas Sociales</a>
+                    <a href="#" class="navegacion__enlace" title="Funcionalidad de permisos de honorarios">Honorarios</a>
+                    <a href="#" class="navegacion__enlace" title="Funcionalidad de permisos de remuneraciones">Remuneraciones</a>
+                    -->
+                </nav>
+            </div>
+        </header><!-- Fin header. -->
+        <span class="display">
+		<main class="cuerpo">
+			<div class="contenedor contenedor--grid">
+                <!-- INDICE DE CONTENIDOS DE LA SECCIÓN -->
+                <div class="contenedor__izquierda">
+                    <div class="menuLateral">
+                        <h2>Contenidos</h2>
+                        <ul id="menu" class="contenido__lista">
+                            <li><a id="link-section1" class="navegacion__enlace menu_vertical" href="#section1">Acceso al sistema</a></li>
+                            <li><a id="link-section2" class="navegacion__enlace menu_vertical" href="#section2">Funciones del sistema</a></li>
+                            <li><a id="link-section3" class="navegacion__enlace menu_vertical" href="#section3">Gestión documental</a></li>
+                            <li><a id="link-section4" class="navegacion__enlace menu_vertical" href="#section4">Informes</a></li>
+                            <li><a id="link-section5" class="navegacion__enlace menu_vertical" href="#section5">Tablas del sistema</a></li>
+                            <li><a id="link-section6" class="navegacion__enlace menu_vertical" href="#section6">Administrador sistema</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CONTENIDO DE LA SECCIÓN -->
+                <div class="contenedor__derecha">
+                    <a name="arriba"></a>
+                    <h2>Gestión Documental</h2>
+
+                    <a name="section1"></a> 
+                    <section id="section1" class="contenido">
+                        <h3>Acceso al sistema</h3>
+
+                        <p class="contenido__parrafo">
+                            Este es el módulo de la suite de DCODE destinada a la administración y control de flujo de la docuemtnación del ámbito municipal. A él se puede acceder desde dashboard principal al acceder a la aplicación.
+                        </p>
+    
+                        <img class="contenido__img" src="img/gdoc/gdoc_01_menu.png" alt="Dashboard de pantalla principal" title="Dashboard de pantalla principal">
+                        <p class="subtitulo cursiva">Ícono de Gestión Documental en Dashboard principal</p>
+
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section>
+                    
+                    <a name="section2"></a> 
+                    <section id="section2" class="contenido">
+                        <h3>Funciones del sistema</h3>
+
+                        <p class="contenido__parrafo">
+                            Al acceder al módulo de Gestión Documental se mostrarán las distintas herramientas del sistema. En la barra lateral se encuentran las funciones de:
+                        </p>
+                        
+                        <ul class="contenido__lista">
+                            <li>Gestión de documentos</li>
+                            <li>Informes del sistema</li>
+                            <li>Tablas del sistema</li>
+                            <li>Administración del sistema</li>
+                        </ul>
+                        
+                        <img class="contenido__img" src="img/gdoc/gdoc_02_lateral.png" alt="Barra lateral del sistema" title="Barra lateral del sistema">
+                        <p class="subtitulo cursiva">Secciones del sistema</p>
+                        
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section>
+
+                    <a name="section3"></a>
+                    <section id="section3" class="contenido">
+                        <h3>Gestión Documental</h3>
+
+                        <p class="contenido__parrafo">
+                            En parte superior se encuentran las pestañas con los distintos elementos del sistema:
+                        </p>
+
+                        <ul class="contenido__lista">
+                            <li>Repeción de documentos</li>
+                            <li>Despacho de documentos</li>
+                            <li>Mis documentos</li>
+                            <li>Decretos exentos</li>
+                            <li>Decretos sugetos a registro</li>
+                            <li>Transparencia</li>
+                        </ul>
+
+                        <img class="contenido__img" src="img/gdoc/gdoc_03_tabs.png" alt="Pestañas del sistema" title="Pestañas del sistema">
+                        <p class="subtitulo cursiva">Pestañas del sistema</p>
+
+                        <h4>Recepción de documentos</h4>
+
+                        <p class="contenido__parrafo">
+                            En la tabla se muestran los distintos documentos que han entrado vía oficina de partes.
+                        </p>
+                        <img class="contenido__img" src="img/gdoc/gdoc_00_inicio.png" alt="Recepción de documentos" title="Recepción de documentos">
+                        <p class="subtitulo cursiva">Recepción de documentos</p>
+                        
+                        <p class="contenido__parrafo">
+                            En la parte superior de la tabla se dispone de filtros que facilitan la búsqueda de documentos dentro de los existentes.
+                        </p>
+                        <img class="contenido__img" src="img/gdoc/gdoc_04_filtros.png" alt="Filtros del sistema" title="Filtros del sistema">
+                        <p class="subtitulo cursiva">Filtros del sistema</p>
+                        
+                        <p class="contenido__parrafo">
+                            Pulsando el botón "Nuevo" se accede a la pantalla en la que se puede cargar un nuevo documento.
+                        </p>
+                        <img class="contenido__img" src="img/gdoc/gdoc_05_nuevo.png" alt="Nuevo documento" title="Nuevo documento">
+                        <p class="subtitulo cursiva">Nuevo documento</p>
+                        
+                        <p class="contendido__parrafo">
+                            Después de hacer clic en el botón de "Nuevo" se accede al formulario de subida de un nuevo documento. En la sección de la izquierda se introducen los datos que permiten su identificación. Tras presionar en el botón de enviar, se mostrará la vista previa del documento en la sección de la derecha, y se adjuntará una hora de verificación del movimiento.
+                        </p>
+                        <img class="contenido__img" src="img/gdoc/gdoc_06_subido.png" alt="Formulario de subida de documento" title="Formulario de subida de documento">
+                        <p class="subtitulo cursiva">Formulario de subida de documento</p>
+                        
+                        <p class="contenido__parrafo">
+                            En la columna acciones de la tabla se encuentran las funciones de:
+                        </p>
+                        <ul class="contenido__lista">
+                            <li><span class="negrita">Vista previa:</span> abre una ventana flotante en la que se puede consultar el documento.</li>
+                            <li><span class="negrita">Estado del documento:</span> permite consultar el estado del documento y su gestión.</li>
+                        </ul>
+                        <img class="contenido__img" src="img/gdoc/gdoc_07_acciones.png" alt="Filtros del sistema" title="Filtros del sistema">
+                        <p class="subtitulo cursiva">Filtros del sistema</p>
+                        <img class="contenido__img" src="img/gdoc/gdoc_08_vistaprevia.png" alt="Vista previa del documento" title="Vista previa del documento">
+                        <p class="subtitulo cursiva">Vista previa del documento</p>
+                        <img class="contenido__img" src="img/gdoc/gdoc_09_estado.png" alt="Estado del documento" title="Estado del documento">
+                        <p class="subtitulo cursiva">Estado del documento</p>
+                        
+                        <h4>Despacho de Documentos</h4>
+
+                        <p class="contenido__parrafo">
+                            Al acceder a la pestaña de "Despacho de Documentos" se mostrará la misma tabla con los documentos en esta pantalla, en la columna de "Acciones" se agrega la función de "Despacho de Documentos".
+                        </p>
+
+                        <p class="contenido__parrafo">
+                            Presionando sobre el ícono del lápiz, se accederá a la pantalla de despacho del documento concreto.
+                        </p>
+                        <div class="contenido--20">
+                            <img class="contenido__img" src="img/gdoc/gdoc_10_editar.png" alt="Botón de edición" title="Botón de edición">
+                            <p class="subtitulo cursiva">Botón de edición</p>
+                        </div>
+
+                        <p class="contenido__parrafo">
+                            Estando dentro del asistente de despacho, se mostrarán la información del documento. Existe un campo de observaciones en el que se pueden redactar comentarios que acompañen el despacho del documento.
+                        </p>
+                        <p class="contenido__parrafo">
+                            En la parte inferior de la pantalla, se muestran a la izquierda los distintos departamentos de la Municipalidad. Para añadir un departamento a la lista de Destinatarios basta con hacer doble clic en el departamento destino.
+                        </p>
+                        <img class="contenido__img" src="img/gdoc/gdoc_11_despacho.png" alt="Formulario de despacho de documentos" title="Formulario de despacho de documentos">
+                        <p class="subtitulo cursiva">Formulario de despacho de documentos</p>
+
+                        <h4>Mis Documentos</h4>
+                        <p class="contenido__parrafo">
+                            En este apartado se muestran los documentos que corresponden al propio usuario. Al igual que en las dos pantallas anteriores, en la columna de acciones de la tabla se encuentran disponibles las funciónes de vista previa y consulta del estado del documento.
+                        </p>
+
+                        <p class="contenido__parrafo">
+                            En esta sección, al presionar sobre el ícono del lápiz se entrará la pantalla de gestión del documento. Esta pantalla muestra la siguiente información:
+                        </p>
+
+                        <ul class="contenido__lista">
+                            <li><span class="negrita">Datos documento:</span> identificación del documento.</li>
+                            <li><span class="negrita">Instrucciones y respuesta:</span> campo dónde se puede introducir un texto libre que acompañe la respuesta al documento recibido.</li>
+                        </ul>
+
+                        <p class="contenido__parrafo">
+                            De manera complementaria, debajo del campo de <span class="cursiva">Instrucciones y respuesta</span>, se muestra una tabla en la que se informa de los destinarios que ha tenido el documento y los botones desde los que se puede adjuntar la respuesta y realizar su posterior envío.
+                        </p>
+
+                        <img class="contenido__img" src="img/gdoc/gdoc_12_misdocumentos.png" alt="Formulario de despacho de documentos" title="Formulario de despacho de documentos">
+                        <p class="subtitulo cursiva">Formulario de despacho de documentos</p>
+
+                        <h4>Mantenedor decretos exentos</h4>
+
+                        <p class="contenido__parrafo">
+                            En esta tabla se muestran los decretos exentos del municipio. Presionando el botón de vista previa de la columna acciones, se puede visualizar el documento para su consulta.
+                        </p>
+
+                        <img class="contenido__img" src="img/gdoc/gdoc_13_dex.png" alt="Mantenedor de decretos exentos" title="Mantenedor de decretos exentos">
+                        <p class="subtitulo cursiva">Mantenedor de decretos exentos</p>
+
+                        <p class="contenido__parrafo">
+                            En caso de tener los permisos, al presionar sobre el botón de nuevo, se podrá acceder al formulario de carga de nuevos Decretos Exentos.
+                        </p>
+
+                        <img class="contenido__img" src="img/gdoc/gdoc_14_ndex.png" alt="Mantenedor de decretos exentos" title="Mantenedor de decretos exentos">
+                        <p class="subtitulo cursiva">Mantenedor de decretos exentos</p>
+
+                        <h4>Mantenedor decretos sugetos a registro</h4>
+
+                        <p class="contenido__parrafo">
+                            En la tabla de Decretos Sugetos a Registro se pueden consultar los existentes en el municipio. De la misma manera que con la tabla anterior, en caso de tener los permisos adecuados, de podrán editar los registros existentes (pulsando el botón de edición de la columna acciones) o cargar nuevos Decretos pulsando en el botón de "Nuevo" situado sobre la tabla.
+                        </p>
+
+                        <img class="contenido__img" src="img/gdoc/gdoc_15_dsr.png" alt="Decretos sugetos a registro" title="Decretos sugetos a registro">
+                        <p class="subtitulo cursiva">Decretos sugetos a registro</p>
+
+                        <img class="contenido__img" src="img/gdoc/gdoc_16_consulta-dsr.png" alt="Consulta de decretos sugetos a registro" title="Consulta de decretos sugetos a registro">
+                        <p class="subtitulo cursiva">Consulta de decretos sugetos a registro</p>
+                        
+                        <h4>Transparencia</h4>
+                        
+                        <p class="contenido__parrafo">
+                            Desde la sección de transparencia se puede realizar la exportación de decretos a la extranet, para poder dejarlos a disposición pública. Para realizar la exportación, basta con pulsar sobre el ícono de la columna acciones.
+                        </p>
+                        
+                        <img class="contenido__img" src="img/gdoc/gdoc_17_export.png" alt="Exportación de decretos" title="Exportación de decretos">
+                        <p class="subtitulo cursiva">Exportación de decretos</p>
+
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section>
+
+                    <a name="section4"></a> 
+                    <section id="section4" class="contenido">
+                        <h3>Informes</h3>
+
+                        <p class="contenido__parrafo">
+                            En esta sección del sistema de Gestión Documental se encuentran predefinidos informes para su exportación en formato PDF. Se dispone de los siguientes informes:
+                        </p>
+
+                        <ul class="contenido__lista">
+                            <li>Decretos Exentos para Transparencia</li>
+                            <li>Decertos para Transparencia</li>
+                            <li>Exportar Decertos Transparencia a ExtraNET</li>
+                            <li>Gestión de Documentos</li>
+                            <li>Recepción de Documentos</li>
+                        </ul>
+
+                        <div class="contenido--80">
+                            <img class="contenido__img" src="img/gdoc/gdoc_18_informes.png" alt="Informes de Gestión documental" title="Informes de Gestión documental">
+                            <p class="subtitulo cursiva">Informes de Gestión documental</p>
+                        </div>
+
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section>
+
+                    <a name="section5"></a> 
+                    <section id="section5" class="contenido">
+                        <h3>Tablas del sistema</h3>
+
+                        <p class="contenido__parrafo">
+                            Para el sistema de Gestión Documental se dispone de las siguientes tablas:
+                        </p>
+
+                        <ul class="contenido__lista">
+                            <li>Libros de correspondencia</li>
+                            <li>Remitentes</li>
+                            <li>Tabla tipos de decretos</li>
+                            <li>Tipo de documentos</li>
+                            <li>Tipo de organizaciones</li>
+                        </ul>
+
+                        <div class="contenido--80">
+                            <img class="contenido__img" src="img/gdoc/gdoc_19_tablas.png" alt="Tablas de Gestión Documental" title="Tablas de Gestión Documental">
+                            <p class="subtitulo cursiva">Tablas de Gestión Documental</p>
+                        </div>
+
+                        <p class="contenido__parrafo">
+                            Al acceder a una de las tablas, se podrán consultar los registros y se podrán agregar nuevos (a través del botón de "Nuevo") y editar o borrarlos mediante los íconos de la columna acciones de la tabla.
+                        </p>
+
+                        <img class="contenido__img" src="img/gdoc/gdoc_20_tabla.png" alt="Tabla tipo de Gestión Documental" title="Tabla tipo de Gestión Documental">
+                        <p class="subtitulo cursiva">Tabla tipo de Gestión Documental</p>
+
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section>
+
+                    <a name="section6"></a> 
+                    <section id="section6" class="contenido">
+                        <h3>Administrador Sistema</h3>
+
+                        <p class="contenido__parrafo">
+                            En esta sección se accede a la tabla de configuración del sistema.
+                        </p>
+
+                        <div class="contenido--80">
+                            <img class="contenido__img" src="img/gdoc/gdoc_21_administrador.png" alt="Administración de Gestión Documental" title="Administración de Gestión Documental">
+                            <p class="subtitulo cursiva">Administración de Gestión Documental</p>
+                        </div>
+
+                        <p class="contenido__parrafo">
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section>
+
+                    <!--
+                    <a name=""></a>
+                    <section class="contenido">
+                        <h3>Tilulo del contenido</h3>
+                        <p class="contenido__parrafo">
+                            Párrafo del contenido.
+                            <div class="contenido__blqCentrador">
+                                <div class="blqCentrado__centrado">
+                                    <img class="contenido__img" src="img/03_Usuarios/usuarios.png" alt="seleccionUsuarios" title="Pantalla de selección de usuarios">
+                                    <p class="subtitulo cursiva">Pantalla de selección y asignación de usuarios al proyecto</p>
+                                </div>
+                            </div>
+                            <a href="#arriba" class="contenido__volver"><span class="cursiva">Volver arriba</span></a>
+                        </p>
+                    </section>--><!-- Fin contenido -->
+                </div> <!-- Fin de contenidos. -->
+            </div>
+		</main><!-- Fin main. -->
+
+		<footer class="contenedor footer">
+            <span class="footer__texto">DCODE - Chile <span id="currentYear"></span></span>
+            <img class="footer__imagen" src="logos/dcode_logo.png" alt="Logo">
+        </footer><!-- Fin footer. -->
+    </span>
+    <script>
+        readyLightbox();
+    </script>
+    </body><!-- Fin body. -->
+</html><!-- Fin documento. -->

@@ -1,0 +1,540 @@
+/*
+*   HOJA DE ESTILOS DE CONTENEDORES, CONTIENE:
+*       - Configuración de contendedores de trabajo
+*/
+
+/*
+    Jerarquía de elementos:
+    Body -> estilos en st_globales.css
+        principal
+            barra lateral
+            tablero
+                *Ver Excel con dibujo*
+*/
+
+/****************************** CONTENEDOR PRINCIPAL ******************************/
+/*
+    Estilos que se aplican a la etiqueta <main>
+        - Fuerza a que la altura mínima de la página tome todo el espacio disponible de la pantalla.
+        - Establece gris como fondo del lienzo.
+*/
+.principal {
+    min-height: calc(100% - 40px);
+    width: 100%;
+    background-color: var(--grisClaro);
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+}
+
+/****************************** BARRA LATERAL ******************************/
+/*
+     - Toma el alto completo de principal y aplica el fondo de color blanco.
+     - Fuerza los elementos en una columna.
+*/
+
+.barraLateral {
+    height: auto;
+    width: 72px;
+    min-width: 72px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--blanco);
+    border-right: 1px solid #e1e7ed;
+    box-shadow: 2px 0 8px rgba(20, 51, 79, 0.05);
+    padding: 10px 8px;
+}
+
+/*
+    Estilo para aplicar a los botones de la barra para mantener su separación.
+*/
+.barraLateral__enlace {
+    align-items: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    height: 52px;
+    justify-content: center;
+    margin: 4px 0;
+    position: relative;
+    transition: background-color .16s ease, box-shadow .16s ease, transform .16s ease;
+    width: 52px;
+}
+
+.barraLateral__enlace:hover {
+    background: #eaf5fb;
+    box-shadow: inset 3px 0 #1cd3c6;
+    transform: translateX(1px);
+}
+
+.barraLateral__enlace:focus-visible {
+    outline: 2px solid #1cd3c6;
+    outline-offset: 2px;
+}
+
+/*
+    Estilos para las imágenes utilizadas en los accesos de la barra.
+*/
+.barraLateral__iconos {
+    display: block;
+    max-height: 42px;
+    max-width: 28px;
+    object-fit: contain;
+}
+
+/* El primer acceso identifica al módulo activo y necesita mayor presencia visual. */
+.barraLateral__iconos--modulo {
+    max-width: none;
+    width: 42px;
+}
+
+.barraLateral__iconos--inicio {
+    margin-top: 20px;
+    height: auto;
+    max-height: none;
+    max-width: none;
+    width: 36px;
+}
+
+.barraLateral__sistema {
+    align-items: center;
+    border-top: 1px solid #e1e7ed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    padding-top: 10px;
+}
+
+.barraLateral__sistema .barraLateral__iconos {
+    height: auto;
+    max-height: none;
+    max-width: none;
+    width: 28px;
+}
+
+@media (max-width: 620px) {
+    .barraLateral {
+        min-width: 60px;
+        padding: 8px 4px;
+        width: 60px;
+    }
+
+    .barraLateral__enlace {
+        height: 46px;
+        width: 46px;
+    }
+
+    .barraLateral__iconos {
+        max-height: 38px;
+        max-width: 38px;
+    }
+
+    .barraLateral__iconos--modulo {
+        max-width: none;
+        width: 38px;
+    }
+
+    .barraLateral__sistema .barraLateral__iconos {
+        height: auto;
+        max-height: none;
+        max-width: none;
+        width: 28px;
+    }
+}
+
+/****************************** TABLERO DE TRABAJO ******************************/
+/*
+    Caracterísiticicas del tablero:
+        - Tablero para pantalla de inicio que funcionará solo con tarjetas.
+        - Divide el espacio de trabajo en 6 columnas iguales separadas por 20px.
+*/
+.tablero {
+    min-height: 100%;
+    width: 100%;
+    margin: 20px;
+    margin-top: 25px;
+    background-color: var(--blanco);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* 
+    background-image: url('/images/mountains.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    */
+}
+
+.tablero__index {
+    display: grid;
+    grid-template-columns: 2fr 4fr 3fr;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.tablero__intra {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.tablero__fila {
+    background-color: var(--grisFila);
+    border-radius: 7.5px;
+    padding: 5px 5px 0px 15px;
+    height: 28px;
+}
+
+.tablero__fila > p {
+    font-style: italic;
+    font-size: 15px;
+    font-weight: 500;
+    color:#ffffff;
+}
+
+.tablero--col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    padding-top: 10px;
+}
+
+@media(min-width: 768px) {
+    .tablero--col {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media(min-width: 900px) {
+    .tablero--col {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media(min-width: 1500px) {
+    .tablero--col {
+        grid-template-columns: repeat(8, 1fr);
+    }
+}
+
+.tablero--2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 0px; /* Hay que corregir esto. */
+    padding-top: 10px;
+}
+
+.tablero--col_mitad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 10px;
+    row-gap: 0px;
+    padding-top: 10px;
+}
+
+/*
+    Título h3 ligeramente modificado para que usar en tablero--entero.
+*/
+.h3--body {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/****************************** HEADER DEL TABLERO ******************************/
+.tablero__header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    /* border-bottom: 3px solid var(--grisClaro); */
+}
+
+.tablero__header--htal {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border-bottom: 3px solid var(--grisClaro);
+}
+
+.tHeader__izquierda {
+    height: 100%;
+    width: 48px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tHeader__derecha {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.header__fila1 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+}
+
+.header__fila2 {
+    width: 98.5%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border-top: 2px solid var(--grisClaro);
+    padding-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.contenedorFiltros {
+    display: flex;
+    gap: 10px; 
+}
+#filtro, #auxiliares {
+    flex: 1fr 2fr; /* ambos ocupan el mismo ancho */
+}
+/* Si el ancho de pantalla es menor a 1280px */
+@media (max-width: 1440px) {
+    .contenedorFiltros {
+    flex-direction: column; /* coloca los div uno debajo del otro */
+    }
+}
+
+
+/****************************** FOOTER DEL TABLERO ******************************/
+.tablero__footer {
+    display: flex;
+    margin-top:10px;
+    flex-direction: row;
+    gap: 10px;
+    border-top: 3px solid var(--grisClaro);
+}
+
+/****************************** ELEMENTOS DEL TABLERO ******************************/
+.tablero__herramientas {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Tarjetas */
+/*
+    Configuración básica de las tarjetas. Las tarjetas se adapatan al tamaño de la columna que las contiene.
+*/
+.tablero__tarjeta {
+    width: 100%;
+    height: 225px;
+    background-color: var(--colorTarjetas);
+    border: 2px solid var(--colorTarjetasBorde);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+}
+
+.tablero__tarjeta--peq {
+    height: 205px;
+}
+
+ /* Tarjeta horizontal */
+.tablero__tarjeta--horizontal {
+    width: 95%;
+    height: 60px;
+    background-color: var(--grisClaro);
+    display: flex;
+    border: 2px solid var(--grisMedio) ;
+    border-radius: 10px;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+.tablero__tarjeta:hover,
+.tablero__tarjeta--horizontal:hover {
+    border: 1px solid var(--grisMedio);
+    box-shadow: 3px 3px 5px var(--grisClaro);
+}
+
+.tHorizontal__body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 10px;
+    padding-left: 15px;
+}
+
+.tablero__reportes {
+    height: 100%;
+    border-left: 10px solid var(--grisClaro); 
+    /* background-image:url('../fondos/fondo_pdf.png');  */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tablero__export {
+    height: 100%;
+    border-left: 10px solid var(--grisClaro); 
+    /* background-image:url('../fondos/fondo_txtExcel.png');  */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/*  Contenedores Index  */
+.contenidoIn {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; /* */
+    align-items: center; 
+    row-gap: 10px;
+    column-gap: 10px;
+
+    padding: 10px 5px;
+    background-color: var(--colorMuni);
+    border-radius: 10px;
+    min-height: 104px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.contenido--direcDepto {
+    border-radius: 15px;
+    padding: 10px 10px;
+    margin-top:0px;
+    background-color: rgb(255, 241, 215);
+    min-height: 100px;
+    height: 100px;
+    max-height: 100px;
+}
+
+.contenidoIn--Muni {
+    background-color: #c8e8fa; /* var(--colorMuni); */
+    /* background-image: var(--imgFondoMuni); */
+}
+
+.contenidoIn--Salud {
+    background-color: var(--colorSalud);
+}
+
+.contenidoIn--Indicadores {
+    background-color: var(--grisClaro);
+    background-image: var(--imgIndicadores);
+}
+
+.contenidoIn--news {
+    background-color: var(--grisClaro);
+    background-image: var(--imgAnuncios);
+}
+
+.contenidoIn--www {
+    background-color: var(--grisClaro);
+    background-image: var(--imgEnlaces);
+}
+
+.contenidoIn--CME {
+    background-color: var(--grisClaro);
+    column-gap: 30px;
+}
+
+.contenidoIn__graficos {
+    background-color: #ffffff; /* var(--dcodeAzul); */
+    min-height: 10px;
+    padding: 10px 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 10;
+    align-items: baseline;
+    border: 5px solid #397bb9;
+}
+
+
+/* Estilos específicos del texto de la parte inferior de la tarjeta. */
+.tarjeta__texto {
+    color: var(--grisOscuro);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.tarjeta__texto--peq {
+    padding-top: 3px;
+    color: var(--grisMedio);
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.tarjeta__img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    border-bottom:  #d3d5db solid 5px;
+}
+
+.tarjeta__img--cat {
+    margin-bottom: 10px;
+}
+
+.tarjeta__img--horizontal {
+    height: 100%;
+    width: auto;
+}
+
+/* ----- */
+.imagenMini {
+    width: 200px;
+    height: 150px;
+    background-color: var(--grisClaro);
+    border: solid 5px #cacaca;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+}
+
+.imagenMini__img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+/* menu superior */
+.fila1__pestana {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0 1px;
+}
+
+.fila1__pestana--actual {
+    font-weight: 600;
+    border-bottom: 3px solid var(--dcodeAzul);
+}
+
+.fila1__pestana:hover {
+    border-bottom: 3px solid var(--dcodeTurq);
+}

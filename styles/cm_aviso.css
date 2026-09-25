@@ -1,0 +1,48 @@
+.aviso {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    background-color: var(--blanco);
+    border: var(--dcodeAzul) solid 3px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: var(--dcodeAzul);
+    z-index: 100000;
+    animation: aparecer 0.6s ease forwards;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+.aviso .ico-exito {
+    color: var(--verde);
+}
+
+.aviso .ico-error {
+    color: var(--rojo);
+}
+
+.aviso-salir {
+    animation: desaparecer 0.6s ease forwards;
+}
+
+@keyframes aparecer {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+    100% {
+        top: 25px;
+        opacity: 1;
+    }
+}
+
+@keyframes desaparecer {
+    0% {
+        top: 25px;
+        opacity: 1;
+    }
+    100% {
+        top: 0;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,392 @@
+/*
+*   HOJA DE ESTILOS DE FORMULARIOS, CONTIENE:
+*       - Configuración de formularios sobrepuestos con trasparencia.
+*       - Estilos de botones
+*/
+
+
+/****************************** FORMULARIOS ******************************/
+/*
+    Contenedor prinpal del formularios:
+        - Ocupa el 35% del ancho de la pantalla
+        - Se coloca en la parte derecha de la pantalla.
+        - Aparece por encima de todo el contenido de la página web
+          sin desordenar los elementos ya existentes.
+        - Trasparencia del 35%
+        - Difuminado 10px.
+*/
+
+.cuadrao {
+    width: 100%;
+    height: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: greenyellow;
+}
+
+.principal__formulario {
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.904);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    padding-top: 80px;
+    border-left: 1px solid var(--grisMedio);
+}
+
+.principal__formulario fieldset,
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.principal__formulario fieldset:last-of-type {
+    margin-bottom: 0;
+}
+
+.formularioGrande {
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formularioGrande--w100 {
+    width: 100%;
+}
+
+.formularioGrande .filaGeneral, 
+.filaFormulario {
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.formularioGrande fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.formularioGrande fieldset:last-of-type {
+    margin-bottom: 0;
+}
+
+.formulario__campo {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(235, 235, 235, 0.432);
+    border-bottom: 1px solid var(--grisMedio);
+    padding: 0px 5px;
+    margin: 5px 0;
+}
+
+.formulario__campo--filtro {
+    border-radius: 7.5px; 
+    background-color: #5cd9ff5e;
+    border: 1px solid #5c9ecf; 
+    padding:3px 15px;
+}
+
+.formulario__campo--orden {
+    border-radius: 7.5px; 
+    background-color: #998d3048;
+    border: 1px solid #998d30; 
+    padding:3px 15px;
+}
+
+.formulario__campo--ro {
+    background-color: rgb(250, 241, 187);
+}
+
+.formulario__campo--sin {
+    border: none;  
+    background-color: white;  
+}
+
+.formulario__campo--wh {
+    background-color: white;  
+}
+
+.campo__label {
+    color: black; /* var(--grisOscuro); */
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.campo__input {
+    width:100%;
+    font-family: var(--fuentePpal);
+    border: none;
+    font-size: 15px;
+    background-color: rgba(221, 221, 221, 0);
+}
+
+.campo__input:focus {
+    /*outline: none;*/
+    outline-width: 1px;
+    outline-color: #124f87;
+    background-color: #ffffff;
+}
+
+.campo__input select { 
+    background-color:#fff;
+    border-width:1px;
+    border-style:dotted; 
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+.campo__input--borde {
+    background-color:#ffffff; 
+    border:1px solid #948f8f;
+}
+
+.campo__input--mediana {
+    font-size: 20px;
+}
+
+.campo__input--peq {
+    font-size: 12px;
+}
+
+.campo__manuscrito {
+    font-family: var(--fuentePpal);
+    font-weight: 500;
+    font-style: italic;
+    font-size: 18px;
+    color: #0a116b;
+}
+
+textarea {
+    min-height: 50px;
+    padding:10px 5px;
+}
+
+/* Tarjetas seleccionables */
+.tablero__tarjeta--catalogo {
+    height: 250px;
+}
+
+.checkable input {
+    display: none;
+}
+
+.checkable input {
+    display: none;
+}
+
+.checkable input:checked+.tablero__tarjeta--catalogo {
+    border: 4px solid transparent;
+    border-color: var(--dcode);
+}
+
+
+/* Grillas */
+
+.fondoTitulos {
+    text-align: center;
+    align-items: center;
+    background-color: var(--buscar) ;
+    color: #ffffff;
+}
+
+
+.fondoTitulos--sin {
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    border-bottom: #000000 1px solid;
+}
+
+.filaImpar {
+    align-items: center;
+    background-color: #8ebcda7e;
+    color: #000000;
+    border-top: #dbdbdb 2px solid;
+}
+
+.filaPar {
+    align-items: center;
+    background-color: #94969917;
+    color: #000000;
+    border-top: #dbdbdb 2px solid;
+}
+
+.celdaGrilla {
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 0px 4px 0px 6px; 
+    font-size: 15px;
+    font-family: 'Fira Mono', 'Menlo', 'Consolas', 'Liberation Mono', 'DejaVu Sans Mono', 'Source Code Pro', monospace, 'Courier New', Courier;
+}
+
+.celdaGrilla--peq {
+    padding: 3px 4px 0px 4px; 
+    font-size: 13px;
+}
+
+.celdaGrilla--img {
+    padding-left:  3px;
+    padding-right: 3px;
+    padding-top: 1px;
+}
+
+.celdaGrilla--manuscrito {
+    font-family: 'ShadowsIntoLight-Regular';
+    src: url('../fonts/ShadowsIntoLight-Regular.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-size: 18px;
+    color: #0a116b;
+}
+
+
+/* Pestañas */
+.tabs {
+    display: flex;
+}
+
+.tab {
+    min-width: 140px;
+    color: #FFFFFF;
+    background-color: var(--buscar);
+    border: none;
+    cursor: pointer;
+    padding: 5px 20px;
+    margin: 0;
+    margin-right: 5px;
+    border-bottom: var(--buscar) solid 5px;
+    text-align: center;
+    transition: border-bottom 600ms ease, font-weight 600ms ease, font-style 600ms ease;
+}
+
+.tab:hover {
+    border-bottom: var(--dcodeTurq) solid 5px;
+}
+
+.actual {
+    font-weight: 300;
+    font-style: italic;
+    border-bottom: var(--dcodeTurq) solid 5px;
+}
+
+.tab__seccion {
+    display: none;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.tab__seccion__campo {
+    width: min-content;
+    background-color: rgba(235, 235, 235, 0.432);
+    border-bottom: 1px solid var(--grisMedio);
+    padding: 20px 5px 5px 5px;
+    margin: 5px 0;
+    font-size: 17px;
+}
+
+.mostrar {
+    display: grid;
+    grid-template-columns: 1;
+}
+
+#divUpload {
+    margin-top: 10px;
+}
+
+/* ::::::::::::::::::::::: PAGINACION :::::::::::::::::::::::::::: */ 
+ul.paginacion { color:#5d6d7e;margin: 4px 0 0 0; cursor:pointer; }
+ul.paginacion li { display:inline; margin-left:2px; width:30px; font-size:1.3em; }
+ul.paginacion li a { color:#5d6d7e; text-decoration:none; padding:0 6px 0 6px; }
+ul.paginacion li a:hover { background:#5d6d7e; color:#ffffff; }
+
+
+/* botones */
+
+.boton {
+    height: 28px;
+    min-width: 120px;
+    color: #ffffff;
+    background: var(--grisOscuro);
+    border: 1px #000000 solid ;
+    border-radius: 5px;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 13px;
+    font-weight:600;
+    cursor: pointer;
+}
+
+.boton--peq {
+    font-size: 12px;
+    height: 20px;
+    min-width: 60px;
+    width: 80px;
+}
+
+/* Azul -> hover celeste */
+.boton--buscar { background: var(--buscar); border: 1px var(--buscar) solid ; }
+.boton--buscar:hover { background: var(--buscarH); border: 1px solid var(--buscarH); }
+
+/* Naranja -> hover rojo */
+.boton--salir { background: var(--salir); border: 1px var(--salir) solid ; }
+.boton--salir:hover { background: var(--salirH); border: 1px var(--salirH) solid ; }
+
+/* Naranja -> hover rojo */
+.boton--cerrar { background: var(--cerrar); border: 1px var(--cerrar) solid ; }
+.boton--cerrar:hover { background: var(--cerrarH); border: 1px var(--cerrarH) solid ; }
+
+/* Verde -> hover verde oscuro */
+.boton--nuevo { background: var(--nuevo); border: 1px var(--nuevo) solid ; }
+.boton--nuevo:hover { background: var(--nuevoH); border: 1px var(--nuevoH) solid ; }
+
+/* Azul oscuro dCode */
+.boton--guardar { background: var(--dcodeAzul); border: 1px var(--dcodeAzul) solid ; }
+.boton--guardar:hover { background: var(--dcodeAzul); border: 1px var(--dcodeAzul) solid ; }
+.boton--guardar:disabled { background: var(--dcodeAzul); color: DimGray; border: 1px DimGray solid ; opacity: 0.2; }
+
+/* Azul turquesa dCode */
+.boton--dcodeT { background: var(--dcodeTurq); border: 1px var(--dcodeTurq) solid ; }
+.boton--dcodeT:hover { background: var(--dcodeTurq); border: 1px solid var(--dcodeTurq); }
+.boton--dcodeT:disabled { background: var(--dcodeTurq); color: DimGray; border: 1px DimGray solid ; opacity: 0.2; }
+
+/* Verde -> hover verde oscuro */
+.boton--enviar { background: var(--nuevo); border: 1px var(--nuevo) solid ; }
+.boton--enviar:hover { background: var(--nuevoH); border: 1px var(--nuevoH) solid ; }
+
+/* Naranja */
+.boton--orange { background: orange; border: 1px orange solid ; }
+.boton--orange:hover { background: darkorange; border: 1px darkorange solid ; }
+.boton--orange:disabled { background: darkorange; color: DimGray; border: 1px DimGray solid ; opacity: 0.2; }
+
+/* Dorado -> hover amarillo pastel */
+.boton--auxiliar { background: var(--auxiliar); border: 1px var(--auxiliar) solid ; }
+.boton--auxiliar:hover { background: var(--auxiliarH); border: 1px var(--auxiliarH) solid ; }
+
+/* Amarillo claro -> hover amarillo grisáceo */
+.boton--auxiliar2 {background: var(--auxiliar2); border: 1px var(--auxiliar2) solid ; }
+.boton--auxiliar2:hover { background: var(--auxiliarH2); border: 1px var(--auxiliarH2) solid ; }
+
+/* otros */

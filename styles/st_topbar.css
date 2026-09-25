@@ -1,0 +1,238 @@
+/*
+*   HOJA DE ESTILOS DE LA BARRA SUPERIOR, CONTIENE:
+*       - Estilos del include top.php
+*/
+
+/*
+    Jerarquía de elementos:
+    Header
+        Superior
+            Superior__izquierda     Superior__derecha
+*/
+
+/*
+    Header: Es el contenedor de la barra superior.
+        - La fija en la parte superior.
+        - Aprovecha el ancho completo de la pantalla.
+        - Fuerza todos los elementos en una única fila, centrados horizontalmente.
+        - Quita el margin y el padding.
+*/
+.header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+    Superior: contenedor que aprovecha el centrado de Header y divide el espacio de trabajo dos mitades iguales.
+        - Aplica el fondo de color.
+        - Aprovecha el ancho completo de su contenedor padre (header).
+        - Aplica display grid y coloca dos columnas.
+        - Fuerza la altura.
+        - Quita margin y padding vertical.
+*/
+.superior {
+    box-sizing: border-box;
+    min-height: 56px;
+    background-color: var(--topBar);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 6px 14px;
+}
+
+/*
+    Superior izquierda: contendor que se usa para colocar contendido en la mitad izquiera de la barra superior.
+        - Fuerza elementos en la mitad izquierda de superior.
+        - Alineación vertical: centrado
+        - Alineación horizontal: izquierda
+        - Padding vertical 0, padding horizontal 5px.
+*/
+.superior__izquierda {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+/*
+    Superior izquierda: contendor que se usa para colocar contendido en la mitad izquiera de la barra superior.
+        - Fuerza elementos en la mitad derecha de superior.
+        - Alineación vertical: centrado
+        - Alineación horizontal: derecha
+        - Padding vertical 0, padding horizontal 5px.
+*/
+.superior__derecha {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    align-items: center;
+}
+
+#toolsbar {
+    height: 56px;
+    width: 100%;
+}
+
+.superior__marca,
+.superior__accion {
+    align-items: center;
+    border-radius: 8px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.superior__marca:focus-visible,
+.superior__accion:focus-visible {
+    outline: 2px solid #77e9ed;
+    outline-offset: 2px;
+}
+
+.superior__logo-principal {
+    display: block;
+    max-height: 38px;
+}
+
+.superior__menu {
+    align-items: center;
+    display: flex;
+    gap: 4px;
+    min-width: 0;
+}
+
+.superior__menu-enlace {
+    border-radius: 7px;
+    color: var(--blanco);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 10px;
+    text-decoration: none;
+    transition: background-color .16s ease, color .16s ease;
+    white-space: nowrap;
+}
+
+.superior__menu-enlace:hover,
+.superior__menu-enlace:focus-visible {
+    background: rgba(255, 255, 255, 0.18);
+    outline: none;
+}
+
+.superior__menu-enlace--activo {
+    background: #fff;
+    color: #124f87;
+}
+
+.superior__contexto,
+.superior__acciones {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+}
+
+.superior__contexto {
+    min-width: 0;
+}
+
+.superior__logo-cliente {
+    max-height: 34px;
+    max-width: 40px;
+    object-fit: contain;
+}
+
+.superior__usuario,
+.superior__fecha,
+.superior__entorno {
+    font-size: 12px;
+    color: var(--blanco);
+    white-space: nowrap;
+}
+
+.superior__entorno {
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    color: #fff27a;
+    font-weight: 700;
+    padding: 4px 8px;
+}
+
+.superior__acciones {
+    border-left: 1px solid rgba(255, 255, 255, 0.24);
+    padding-left: 12px;
+}
+
+.superior__accion {
+    height: 38px;
+    transition: background-color .16s ease, transform .16s ease;
+    width: 38px;
+}
+
+.superior__accion:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-1px);
+}
+
+.superior__accion--salir {
+    margin-left: 4px;
+}
+
+.superior__accion img {
+    display: block;
+    max-height: 31px;
+    max-width: 31px;
+}
+
+@media (max-width: 980px) {
+    .superior__usuario,
+    .superior__fecha {
+        display: none;
+    }
+}
+
+@media (max-width: 620px) {
+    .superior {
+        grid-template-columns: auto 1fr;
+        padding: 6px 8px;
+    }
+
+    .superior__entorno,
+    .superior__logo-cliente {
+        display: none;
+    }
+
+    .superior__derecha {
+        gap: 0;
+    }
+
+    .superior__izquierda {
+        gap: 6px;
+        overflow-x: auto;
+    }
+
+    .superior__marca {
+        flex: 0 0 auto;
+    }
+
+    .superior__menu {
+        gap: 1px;
+    }
+
+    .superior__menu-enlace {
+        font-size: 11px;
+        padding: 7px 6px;
+    }
+
+    .superior__acciones {
+        gap: 2px;
+        padding-left: 6px;
+    }
+}

@@ -1,0 +1,162 @@
+/*
+================================================
+🚀 SISTEMA DE COLUMNAS FLEXIBLE - PROPUESTA
+================================================
+
+Este sistema COMPLEMENTA (no reemplaza) el sistema actual,
+ofreciendo una alternativa moderna y flexible.
+
+VENTAJAS:
+- 90% menos clases CSS para columnas
+- Flexibilidad infinita para nuevos layouts
+- Responsive automático incluido
+- Compatible con sistema actual
+- CSS moderno con Custom Properties
+
+COMPATIBILIDAD: 100% - No rompe nada existente
+*/
+
+/* ================================= */
+/* 🚀 SISTEMA DE COLUMNAS FLEXIBLE  */
+/* ================================= */
+
+/* Contenedor base flexible */
+.grid-flex {
+    display: grid;
+    column-gap: var(--gap, 10px);
+    row-gap: var(--gap, 10px);
+    grid-template-columns: var(--columns, 1fr);
+}
+
+/* Presets para casos comunes */
+.grid-2 {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5 {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-6 {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+/* Helpers para layouts específicos existentes */
+.grid-tickets {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: 4fr 9fr 2fr; /* Equivale a col3_492 */
+}
+
+.grid-liquidaciones {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: 2fr 2fr 6fr 2fr; /* Equivale a col4_2262 */
+}
+
+.grid-ayudas {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-columns: 2fr repeat(7, 1fr); /* Equivale a col8_211111111 */
+}
+
+/* Utilidades de espaciado */
+.gap-0 { --gap: 0; }
+.gap-5 { --gap: 5px; }
+.gap-15 { --gap: 15px; }
+.gap-20 { --gap: 20px; }
+
+/* Responsive automático */
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4, .grid-5, .grid-6 {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+    
+    .grid-tickets,
+    .grid-liquidaciones,
+    .grid-ayudas {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+    
+    /* Para mantener 2 columnas en móvil si es necesario */
+    .grid-mobile-2 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* ================================= */
+/* 📝 EJEMPLOS DE USO:              */
+/* ================================= */
+
+/*
+NUEVO SISTEMA - Ejemplos de uso:
+
+<!-- Layout personalizado cualquiera -->
+<div class="grid-flex" style="--columns: 1fr 2fr 3fr">
+    <div>Col 1</div>
+    <div>Col 2</div>
+    <div>Col 3</div>
+</div>
+
+<!-- Layout de 4 columnas iguales -->
+<div class="grid-4">
+    <div>Col 1</div>
+    <div>Col 2</div>
+    <div>Col 3</div>
+    <div>Col 4</div>
+</div>
+
+<!-- Layout específico para tickets -->
+<div class="grid-tickets">
+    <div>Título</div>
+    <div>Descripción</div>
+    <div>Estado</div>
+</div>
+
+<!-- Layout con espaciado personalizado -->
+<div class="grid-flex gap-20" style="--columns: 3fr 1fr 2fr">
+    <div>Col ancha</div>
+    <div>Col estrecha</div>
+    <div>Col media</div>
+</div>
+
+EQUIVALENCIAS CON SISTEMA ACTUAL:
+- col2_11 → grid-2
+- col3_111 → grid-3  
+- col3_492 → grid-tickets
+- col4_2262 → grid-liquidaciones
+- col8_211111111 → grid-ayudas
+
+VENTAJAS:
+✅ Cualquier proporción sin crear clases CSS
+✅ Responsive automático incluido
+✅ Espaciado variable fácil
+✅ 90% menos código CSS
+✅ Compatible con sistema actual
+*/

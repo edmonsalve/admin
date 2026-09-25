@@ -1,0 +1,875 @@
+/**
+ * Carga asíncrona de módulos del dashboard CME
+ * Para mejorar el tiempo de carga inicial
+ */
+
+class DashboardAsync {
+    constructor() {
+        this.timeouts = {
+            ayudSocial: 8000,
+            personal: 8000,
+            pcir: 8000,
+            patentes: 8000
+        };
+        
+        this.retryAttempts = 2;
+        this.loadingElements = {};
+    }
+
+    /**
+     * Inicializa la carga asíncrona de todos los módulos
+     */
+    init() {
+        console.log('DashboardAsync.init() ejecutado');
+        console.log('Configuración:', window.dashboardConfig);
+        console.log('Módulos habilitados:');
+        console.log('  - ayudSocial:', window.dashboardConfig?.modules?.ayudSocial);
+        console.log('  - personal:', window.dashboardConfig?.modules?.personal);
+        console.log('  - pCircu:', window.dashboardConfig?.modules?.pCircu);
+        console.log('  - patComer:', window.dashboardConfig?.modules?.patComer);
+        
+        if (!window.dashboardConfig) {
+            console.error('window.dashboardConfig no está definido');
+            return;
+        }
+        
+        if (!window.dashboardConfig.asyncEnabled) {
+            console.log('Carga asíncrona deshabilitada');
+            return;
+        }
+        
+        console.log('Iniciando carga de módulos...');
+        // Cargar módulos con delay mayor para asegurar renderizado completo del DOM
+        if (window.dashboardConfig.modules.ayudSocial) {
+            console.log('Cargando módulo ayudSocial...');
+            setTimeout(() => this.loadAyudSocial(), 1000); // Aumentar delay
+        }
+        if (window.dashboardConfig.modules.personal) {
+            console.log('Cargando módulo personal...');
+            setTimeout(() => this.loadPersonalAusente(), 1200);
+        }
+        if (window.dashboardConfig.modules.pCircu) {
+            console.log('Cargando módulo pCircu...');
+            setTimeout(() => this.loadPcirData(), 1400);
+        }
+        if (window.dashboardConfig.modules.patComer) {
+            console.log('Cargando módulo patComer...');
+            setTimeout(() => this.loadPatentesData(), 1600);
+        }
+    }
+
+    /**
+     * Inicializa los estados de carga
+     */
+    initLoadingStates() {
+        const modules = ['ayudSocial', 'personal', 'pcir', 'patentes'];
+        
+        modules.forEach(module => {
+            const container = document.getElementById(`dashboard-${module}`);
+            if (container) {
+                this.showLoading(container, `Cargando datos de ${module}...`);
+            }
+        });
+    }
+
+    /**
+     * Muestra indicador de carga sin destruir contenido existente
+     */
+    showLoading(container, message) {
+        // Verificar si ya existe un canvas en el contenedor
+        const existingCanvas = container.querySelector('canvas');
+        if (existingCanvas) {
+            // Si existe canvas, solo agregar overlay de loading
+            this.addLoadingOverlay(container, message);
+        } else {
+            // Si no existe canvas, crear estructura básica con loading
+            container.innerHTML = `
+                <div class="loading-indicator">
+                    <div class="spinner"></div>
+                    <span>${message}</span>
+                </div>
+            `;
+        }
+    }
+
+    /**
+     * Agrega overlay de loading sobre contenido existente
+     */
+    addLoadingOverlay(container, message) {
+        // Evitar múltiples overlays
+        if (container.querySelector('.loading-overlay')) return;
+        
+        const overlay = document.createElement('div');
+        overlay.className = 'loading-overlay';
+        overlay.innerHTML = `
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+                <span>${message}</span>
+            </div>
+        `;
+        overlay.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        `;
+        
+        // Asegurar que el contenedor tenga posición relativa
+        if (getComputedStyle(container).position === 'static') {
+            container.style.position = 'relative';
+        }
+        
+        container.appendChild(overlay);
+    }
+
+    /**
+     * Remueve overlay de loading
+     */
+    removeLoadingOverlay(container) {
+        const overlay = container.querySelector('.loading-overlay');
+        if (overlay) {
+            overlay.remove();
+        }
+    }
+
+    /**
+     * Muestra mensaje de error preservando canvas existentes
+     */
+    showError(container, message) {
+        // Verificar si ya existe un canvas en el contenedor
+        const existingCanvas = container.querySelector('canvas');
+        if (existingCanvas) {
+            // Si existe canvas, solo agregar overlay de error
+            this.addErrorOverlay(container, message);
+        } else {
+            // Si no existe canvas, reemplazar contenido completo
+            container.innerHTML = `
+                <div class="error-indicator">
+                    <span class="error-icon">⚠</span>
+                    <span>${message}</span>
+                    <button onclick="location.reload()" class="retry-btn">Reintentar</button>
+                </div>
+            `;
+        }
+    }
+
+    /**
+     * Agrega overlay de error sobre contenido existente
+     */
+    addErrorOverlay(container, message) {
+        // Remover loading overlay si existe
+        this.removeLoadingOverlay(container);
+        
+        // Evitar múltiples overlays de error
+        if (container.querySelector('.error-overlay')) return;
+        
+        const overlay = document.createElement('div');
+        overlay.className = 'error-overlay';
+        overlay.innerHTML = `
+            <div class="error-indicator">
+                <span class="error-icon">⚠</span>
+                <span>${message}</span>
+                <button onclick="this.parentElement.parentElement.remove(); location.reload()" class="retry-btn">Reintentar</button>
+            </div>
+        `;
+        overlay.style.cssText = `
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        `;
+        
+        // Asegurar que el contenedor tenga posición relativa
+        if (getComputedStyle(container).position === 'static') {
+            container.style.position = 'relative';
+        }
+        
+        container.appendChild(overlay);
+    }
+
+    /**
+     * Realizar petición AJAX con timeout y retry
+     */
+    async makeRequest(url, timeout, retries = 0) {
+        return new Promise((resolve, reject) => {
+            const xhr = new XMLHttpRequest();
+            
+            const timeoutId = setTimeout(() => {
+                xhr.abort();
+                reject(new Error('Timeout'));
+            }, timeout);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    clearTimeout(timeoutId);
+                    
+                    if (xhr.status === 200) {
+                        try {
+                            const data = JSON.parse(xhr.responseText);
+                            resolve(data);
+                        } catch (e) {
+                            reject(new Error('Error parsing JSON'));
+                        }
+                    } else {
+                        reject(new Error(`HTTP ${xhr.status}`));
+                    }
+                }
+            };
+
+            xhr.onerror = function() {
+                clearTimeout(timeoutId);
+                reject(new Error('Network error'));
+            };
+
+            xhr.open('GET', url, true);
+            xhr.send();
+        }).catch(error => {
+            if (retries < this.retryAttempts) {
+                console.log(`Retrying request to ${url}, attempt ${retries + 1}`);
+                return this.makeRequest(url, timeout, retries + 1);
+            }
+            throw error;
+        });
+    }
+
+    /**
+     * Cargar datos de ayuda social
+     */
+    async loadAyudSocial() {
+        console.log('loadAyudSocial() iniciado');
+        const container = document.getElementById('dashboard-ayudSocial');
+        if (!container) {
+            console.error('Container dashboard-ayudSocial no encontrado');
+            return;
+        }
+
+        // Mostrar loading antes de hacer request
+        this.showLoading(container, 'Cargando datos de ayuda social...');
+
+        try {
+            // Usar endpoint real de ayuda social
+            const endpoint = '/appCme/ajax/ayudSocialData.php';
+            console.log('Haciendo request a:', endpoint);
+            const data = await this.makeRequest(endpoint, this.timeouts.ayudSocial);
+            
+            console.log('Datos recibidos:', data);
+            this.renderAyudSocialChart(container, data);
+        } catch (error) {
+            console.error('Error loading Ayuda Social:', error);
+            this.showError(container, 'Error cargando datos de Ayuda Social');
+        }
+    }
+
+    /**
+     * Cargar datos de personal ausente
+     */
+    async loadPersonalAusente() {
+        const container = document.getElementById('dashboard-personal');
+        if (!container) return;
+
+        // Mostrar loading antes de hacer request
+        this.showLoading(container, 'Cargando datos de personal...');
+
+        try {
+            const data = await this.makeRequest(
+                '/appCme/ajax/personalAusenteData.php', 
+                this.timeouts.personal
+            );
+            
+            this.renderPersonalChart(container, data);
+        } catch (error) {
+            console.error('Error loading Personal:', error);
+            this.showError(container, 'Error cargando datos de Personal');
+        }
+    }
+
+    /**
+     * Cargar datos de PCIR
+     */
+    async loadPcirData() {
+        console.log('loadPcirData() iniciado');
+        const container = document.getElementById('dashboard-pcir');
+        if (!container) {
+            console.error('Container dashboard-pcir no encontrado');
+            return;
+        }
+
+        // Mostrar loading antes de hacer request
+        this.showLoading(container, 'Cargando datos de PCIR...');
+
+        try {
+            console.log('Haciendo request a: /appCme/ajax/pcirData.php');
+            const data = await this.makeRequest(
+                '/appCme/ajax/pcirData.php', 
+                this.timeouts.pcir
+            );
+            
+            console.log('Datos PCIR recibidos:', data);
+            this.renderPcirChart(container, data);
+        } catch (error) {
+            console.error('Error loading PCIR:', error);
+            this.showError(container, 'Error cargando datos de PCIR');
+        }
+    }
+
+    /**
+     * Cargar datos de patentes
+     */
+    async loadPatentesData() {
+        console.log('loadPatentesData() iniciado');
+        const container = document.getElementById('dashboard-patentes');
+        if (!container) {
+            console.error('Container dashboard-patentes no encontrado');
+            return;
+        }
+
+        // Mostrar loading antes de hacer request
+        this.showLoading(container, 'Cargando datos de patentes...');
+
+        try {
+            console.log('Haciendo request a: /appCme/ajax/patentesData.php');
+            const data = await this.makeRequest(
+                '/appCme/ajax/patentesData.php', 
+                this.timeouts.patentes
+            );
+            
+            console.log('Datos patentes recibidos:', data);
+            this.renderPatentesChart(container, data);
+        } catch (error) {
+            console.error('Error loading Patentes:', error);
+            this.showError(container, 'Error cargando datos de Patentes');
+        }
+    }
+
+    /**
+     * Renderizar gráfico de ayuda social
+     */
+    renderAyudSocialChart(container, data) {
+        console.log('renderAyudSocialChart ejecutado con:', data);
+        
+        // Remover overlay de loading
+        this.removeLoadingOverlay(container);
+        
+        if (data.error) {
+            console.error('Error en datos de ayuda social:', data.error);
+            this.showError(container, data.error);
+            return;
+        }
+
+        console.log('Intentando crear gráfico de ayuda social...');
+        
+        // En lugar de disparar evento, crear directamente el gráfico
+        try {
+            // Buscar el canvas dentro del contenedor
+            const canvas = container.querySelector('#graficoAyudSocEnt');
+            if (!canvas) {
+                console.error('Canvas graficoAyudSocEnt no encontrado dentro del contenedor');
+                this.showError(container, 'Canvas no encontrado');
+                return;
+            }
+            
+            console.log('Canvas encontrado, verificando si ya existe un gráfico...');
+            
+            // Destruir gráfico existente si lo hay
+            const existingChart = Chart.getChart(canvas);
+            if (existingChart) {
+                console.log('Destruyendo gráfico existente...');
+                existingChart.destroy();
+            }
+            
+            console.log('Creando gráfico de ayuda social con datos reales...');
+            
+            // Usar la función original del sistema con datos reales
+            if (typeof window.graficoAyudSocEnt === 'function') {
+                // Llamar a la función original con los datos recibidos
+                window.graficoAyudSocEnt(
+                    eval('[' + data.labels + ']'),           // ayudasLabels
+                    eval('[' + data.tipoAyudas + ']'),       // tipoAyudas  
+                    data.ayuda01.split(',').map(Number),     // ayudas01
+                    data.ayuda02.split(',').map(Number),     // ayudas02
+                    data.ayuda03.split(',').map(Number),     // ayudas03
+                    data.ayuda04.split(',').map(Number),     // ayudas04
+                    data.ayuda05.split(',').map(Number),     // ayudas05
+                    data.ayuda06.split(',').map(Number),     // ayudas06
+                    data.ayuda07.split(',').map(Number),     // ayudas07
+                    data.ayuda08.split(',').map(Number),     // ayudas08
+                    data.ayuda09.split(',').map(Number),     // ayudas09
+                    data.ayuda10.split(',').map(Number),     // ayudas10
+                    data.montoAyudas.split(',').map(Number)  // montoTotal
+                );
+                console.log('✅ Gráfico de ayuda social creado exitosamente usando función original');
+            } else {
+                // Fallback: Crear gráfico básico si no hay función original
+                const ctx = canvas.getContext('2d');
+                
+                const chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: eval('[' + data.labels + ']'),
+                        datasets: [{
+                            label: 'Total Ayudas',
+                            data: data.montoAyudas.split(',').map(Number),
+                            borderColor: '#3f51b5',
+                            backgroundColor: 'rgba(63, 81, 181, 0.1)',
+                            tension: 0,
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Ayudas Sociales Entregadas'
+                            }
+                        }
+                    }
+                });
+                console.log('✅ Gráfico de ayuda social creado con fallback');
+            }
+            
+            // Forzar re-render después de un pequeño delay
+            setTimeout(() => {
+                if (chart && chart.resize) {
+                    console.log('🔄 Forzando resize del gráfico de ayuda social...');
+                    chart.resize();
+                    chart.update();
+                }
+            }, 100);
+            container.classList.add('loaded');
+            
+        } catch (error) {
+            console.error('❌ Error creando gráfico de ayuda social:', error);
+            this.showError(container, 'Error creando gráfico: ' + error.message);
+        }
+    }
+
+    /**
+     * Renderizar gráfico de personal
+     */
+    renderPersonalChart(container, data) {
+        console.log('renderPersonalChart ejecutado con:', data);
+        
+        // Remover overlay de loading
+        this.removeLoadingOverlay(container);
+        
+        if (data.error) {
+            console.error('Error en datos de personal:', data.error);
+            this.showError(container, data.error);
+            return;
+        }
+
+        console.log('Intentando crear gráfico de personal...');
+        
+        try {
+            // Buscar el canvas dentro del contenedor
+            const canvas = container.querySelector('#graficoPersonal');
+            if (!canvas) {
+                console.error('Canvas graficoPersonal no encontrado dentro del contenedor');
+                this.showError(container, 'Canvas no encontrado');
+                return;
+            }
+            
+            console.log('Canvas encontrado, verificando si ya existe un gráfico...');
+            
+            // Destruir gráfico existente si lo hay
+            const existingChart = Chart.getChart(canvas);
+            if (existingChart) {
+                console.log('Destruyendo gráfico existente de personal...');
+                existingChart.destroy();
+            }
+            
+            console.log('Creando nuevo gráfico de personal...');
+            
+            // DEBUG: Verificar estado del canvas antes de crear gráfico
+            const canvasRect = canvas.getBoundingClientRect();
+            const canvasStyles = window.getComputedStyle(canvas);
+            console.log('🔍 CANVAS DEBUG:');
+            console.log('  - Canvas dimensions:', canvasRect.width + 'x' + canvasRect.height);
+            console.log('  - Canvas display:', canvasStyles.display);
+            console.log('  - Canvas visibility:', canvasStyles.visibility);
+            console.log('  - Canvas opacity:', canvasStyles.opacity);
+            console.log('  - Container visible:', container.getBoundingClientRect().width + 'x' + container.getBoundingClientRect().height);
+            
+            // Verificar que el canvas tenga dimensiones válidas
+            if (canvasRect.width === 0 || canvasRect.height === 0) {
+                console.warn('⚠️ Canvas tiene dimensiones 0, esperando y reintentando...');
+                setTimeout(() => {
+                    console.log('🔄 Reintentando crear gráfico de ayuda social...');
+                    this.renderAyudSocialChart(container, data);
+                }, 500);
+                return;
+            }
+            
+            const ctx = canvas.getContext('2d');
+            
+            const chart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Presentes', 'Vacaciones', 'Permisos'],
+                    datasets: [{
+                        data: [
+                            data.funcionariosTrabajando || 0,
+                            data.funcionariosVacaciones || 0,
+                            data.funcionariosPermiso || 0
+                        ],
+                        backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Estado del Personal'
+                        },
+                        legend: {
+                            display: true,
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            console.log('✅ Gráfico de personal creado exitosamente');
+            container.classList.add('loaded');
+            
+        } catch (error) {
+            console.error('❌ Error creando gráfico de personal:', error);
+            this.showError(container, 'Error creando gráfico: ' + error.message);
+        }
+    }
+
+    /**
+     * Renderizar gráfico de PCIR
+     */
+    renderPcirChart(container, data) {
+        console.log('renderPcirChart ejecutado con:', data);
+        
+        // Remover overlay de loading
+        this.removeLoadingOverlay(container);
+        
+        if (data.error) {
+            console.error('Error en datos de PCIR:', data.error);
+            this.showError(container, data.error);
+            return;
+        }
+
+        console.log('Intentando crear gráficos de PCIR...');
+        
+        try {
+            // Usar las funciones originales del sistema
+            if (typeof window.graficoPcirHistorico === 'function' && typeof window.graficoPcirActivo === 'function') {
+                // Gráfico histórico
+                window.graficoPcirHistorico(
+                    eval('[' + data.labelsPcirHistorico + ']'),    // labels
+                    data.ventasContadoHist.split(',').map(Number), // ventasContadoHist
+                    data.ventas1Cuota.split(',').map(Number),      // ventas1Cuota
+                    data.ventas2Cuota.split(',').map(Number)       // ventas2Cuota
+                );
+                console.log('✅ Gráfico PCIR histórico creado usando función original');
+                
+                // Gráfico activo (doughnut)
+                window.graficoPcirActivo(
+                    data.pcirAnoActivo || "'2025'",    // año
+                    data.MontoContado || 0,            // montoContado
+                    data.MontoCuotas1 || 0,            // monto1raCuota
+                    data.MontoCuotas2 || 0             // monto2daCuota
+                );
+                console.log('✅ Gráfico PCIR activo creado usando función original');
+                
+            } else {
+                console.log('Funciones originales no encontradas, usando fallback...');
+                // Fallback con datos básicos
+                const canvasHistorico = container.querySelector('#graficoPcirHist');
+                if (canvasHistorico) {
+                    const existingChart = Chart.getChart(canvasHistorico);
+                    if (existingChart) existingChart.destroy();
+                    
+                    const ctxHist = canvasHistorico.getContext('2d');
+                    new Chart(ctxHist, {
+                        type: 'line',
+                        data: {
+                            labels: ['2025'],
+                            datasets: [{
+                                label: 'PCIR Total',
+                                data: [100],
+                                borderColor: '#3f51b5'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: { title: { display: true, text: 'PCIR Histórico (Datos de prueba)' }}
+                        }
+                    });
+                    console.log('✅ Gráfico PCIR histórico (fallback) creado');
+                }
+            }
+            } else {
+                console.log('Canvas histórico encontrado, verificando gráfico existente...');
+                
+                // Destruir gráfico existente si lo hay
+                const existingChart = Chart.getChart(canvasHistorico);
+                if (existingChart) {
+                    console.log('Destruyendo gráfico PCIR histórico existente...');
+                    existingChart.destroy();
+                }
+                
+                console.log('Creando nuevo gráfico PCIR histórico...');
+                const ctxHist = canvasHistorico.getContext('2d');
+                
+                const chartHist = new Chart(ctxHist, {
+                    type: 'line',
+                    data: {
+                        labels: [data.pcirAnoActivo?.replace(/'/g, '') || '2025'],
+                        datasets: [{
+                            label: 'Ventas Contado',
+                            data: [data.ventasContadoHist || 0],
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 2
+                        }, {
+                            label: 'Ventas 1 Cuota',
+                            data: [data.ventas1Cuota || 0],
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'PCIR Histórico'
+                            }
+                        }
+                    }
+                });
+                
+                console.log('✅ Gráfico PCIR histórico creado exitosamente');
+                
+                // Forzar re-render después de un pequeño delay
+                setTimeout(() => {
+                    if (chartHist && chartHist.resize) {
+                        console.log('🔄 Forzando resize del gráfico PCIR histórico...');
+                        chartHist.resize();
+                        chartHist.update();
+                    }
+                }, 100);
+            }
+            
+            if (!canvasDoughnut) {
+                console.error('Canvas miDoughnut no encontrado dentro del contenedor');
+            } else {
+                console.log('Canvas doughnut encontrado, verificando gráfico existente...');
+                
+                // Destruir gráfico existente si lo hay
+                const existingChart = Chart.getChart(canvasDoughnut);
+                if (existingChart) {
+                    console.log('Destruyendo gráfico PCIR doughnut existente...');
+                    existingChart.destroy();
+                }
+                
+                console.log('Creando nuevo gráfico PCIR doughnut...');
+                const ctxDough = canvasDoughnut.getContext('2d');
+                
+                const total = (data.MontoContado || 0) + (data.MontoCuotas1 || 0) + (data.MontoCuotas2 || 0);
+                
+                const chartDough = new Chart(ctxDough, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Contado', 'Cuotas 1', 'Cuotas 2'],
+                        datasets: [{
+                            data: [
+                                data.MontoContado || 0,
+                                data.MontoCuotas1 || 0, 
+                                data.MontoCuotas2 || 0
+                            ],
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(255, 205, 86, 0.8)'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'PCIR Activo'
+                            }
+                        }
+                    }
+                });
+                
+                console.log('✅ Gráfico PCIR doughnut creado exitosamente');
+                
+                // Forzar re-render después de un pequeño delay  
+                setTimeout(() => {
+                    if (chartDough && chartDough.resize) {
+                        console.log('🔄 Forzando resize del gráfico PCIR doughnut...');
+                        chartDough.resize();
+                        chartDough.update();
+                    }
+                }, 100);
+            }
+            
+        } catch (error) {
+            console.error('❌ Error creando gráficos de PCIR:', error);
+            this.showError(container, 'Error creando gráfico: ' + error.message);
+        }
+    }
+
+    /**
+     * Renderizar gráfico de patentes
+     */
+    renderPatentesChart(container, data) {
+        console.log('renderPatentesChart ejecutado con:', data);
+        
+        // Remover overlay de loading
+        this.removeLoadingOverlay(container);
+        
+        if (data.error) {
+            console.error('Error en datos de patentes:', data.error);
+            this.showError(container, data.error);
+            return;
+        }
+
+        console.log('Intentando crear gráfico de patentes...');
+        
+        try {
+            // Buscar el canvas dentro del contenedor
+            const canvas = container.querySelector('#graficoPatHist');
+            if (!canvas) {
+                console.error('Canvas graficoPatHist no encontrado dentro del contenedor');
+                this.showError(container, 'Canvas no encontrado');
+                return;
+            }
+            
+            console.log('Canvas encontrado, verificando gráfico existente...');
+            
+            // Destruir gráfico existente si lo hay
+            const existingChart = Chart.getChart(canvas);
+            if (existingChart) {
+                console.log('Destruyendo gráfico de patentes existente...');
+                existingChart.destroy();
+            }
+            
+            console.log('Creando nuevo gráfico de patentes...');
+            
+            // DEBUG: Verificar estado del canvas antes de crear gráfico
+            const canvasRect = canvas.getBoundingClientRect();
+            const canvasStyles = window.getComputedStyle(canvas);
+            console.log('🔍 PERSONAL CANVAS DEBUG:');
+            console.log('  - Canvas dimensions:', canvasRect.width + 'x' + canvasRect.height);
+            console.log('  - Canvas display:', canvasStyles.display);
+            console.log('  - Canvas visibility:', canvasStyles.visibility);
+            console.log('  - Canvas opacity:', canvasStyles.opacity);
+            console.log('  - Container visible:', container.getBoundingClientRect().width + 'x' + container.getBoundingClientRect().height);
+            
+            const ctx = canvas.getContext('2d');
+            
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [data.seriesPat?.replace(/'/g, '') || '2025'],
+                    datasets: [{
+                        label: 'Pagadas',
+                        data: [data.seriePagadas || 0],
+                        backgroundColor: 'rgba(75, 192, 192, 0.8)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Morosas',
+                        data: [42],
+                        backgroundColor: 'rgba(255, 99, 132, 0.8)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Patentes Comerciales'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+            console.log('✅ Gráfico de patentes creado exitosamente');
+            
+            // Forzar re-render después de un pequeño delay
+            setTimeout(() => {
+                if (chart && chart.resize) {
+                    console.log('🔄 Forzando resize del gráfico de patentes...');
+                    chart.resize();
+                    chart.update();
+                }
+            }, 100);
+            
+        } catch (error) {
+            console.error('❌ Error creando gráfico de patentes:', error);
+            this.showError(container, 'Error creando gráfico: ' + error.message);
+        }
+    }
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('dashboard-async.js DOMContentLoaded ejecutado');
+    
+    // Esperar un momento para que window.dashboardConfig se establezca
+    setTimeout(function() {
+        if (typeof window.dashboardConfig !== 'undefined') {
+            console.log('dashboardConfig encontrado:', window.dashboardConfig);
+            
+            if (window.dashboardConfig.asyncEnabled) {
+                console.log('Inicializando DashboardAsync...');
+                const dashboard = new DashboardAsync();
+                dashboard.init();
+            } else {
+                console.log('Carga asíncrona deshabilitada, usando modo síncrono');
+            }
+        } else {
+            console.error('window.dashboardConfig no está definido');
+            // Intentar de nuevo en caso de timing issue
+            setTimeout(function() {
+                if (typeof window.dashboardConfig !== 'undefined') {
+                    console.log('dashboardConfig encontrado en segundo intento:', window.dashboardConfig);
+                    
+                    if (window.dashboardConfig.asyncEnabled) {
+                        const dashboard = new DashboardAsync();
+                        dashboard.init();
+                    }
+                } else {
+                    console.error('window.dashboardConfig sigue sin estar definido después de 2 segundos');
+                }
+            }, 2000);
+        }
+    }, 100);
+});
+
+// Exportar la clase para uso global
+window.DashboardAsync = DashboardAsync;

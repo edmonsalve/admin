@@ -1,0 +1,293 @@
+/* FORMULARIO AGENDA AL FINAL */
+.gap { /*Helper para campos puestos en divs de columnas*/
+    gap: 10px;
+}
+
+form {
+    margin: 0;
+}
+
+.portal {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/fondos/fondo0.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.contenido {
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.contenido > img {
+    width: 50%;
+}
+
+.formulario-flotante {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    /*background-color: rgba(102, 241, 232, .5);*/
+    background-color: rgba(181, 242, 255, 0.90);
+    backdrop-filter: blur(8px);
+    padding: 20px;
+    border-left: var(--dcodeAzul) solid 10px;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.ff-tablero {
+    min-height: 95%;
+    width: 95%;
+    background-color: var(--blanco);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.ff-interior {
+    position: fixed;
+    z-index: 1000;
+    width: 760px;
+    top: 50%;
+    left: 50%;
+    background-color: rgba(181, 242, 255, 0.90);
+    transform: translate(-50%,-50%);
+    max-height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.ff-interior .filaGeneral__seccion {
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+
+.formulario-flotante  h3,
+.formulario-flotante  h4 {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--dcodeAzul);
+    font: var(--fuentePpal);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.formulario-flotante > h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+
+.ff-interior h3 {
+    font-size: 25px;
+    color: var(--dcodeAzul);
+}
+
+.ff-contenedor {
+    width: 100%;
+    display: flex;
+    background-color: rgb(242, 242, 242);
+    border-bottom: 1px solid var(--grisMedio);
+    border-radius: 2.5px;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.ff-contenedor--readonly {
+    background-color: rgb(250, 241, 187);
+}
+
+.ff-contenedor label {
+    color: var(--negro);
+    font-weight: bold;
+    font-size: 12px;
+    padding-left: 5px;
+}
+
+.formularioFL-img {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formularioFL-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.formularioFL-campo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--dcodeAzul);
+}
+
+.FLcampo-input {
+    background-color: var(--blanco);
+    border-radius: 5px;
+    border: none;
+    padding: 6px;
+    font-size: 16px;
+}
+
+.ff-contenedor input,
+.ff-contenedor select,
+.ff-contenedor textarea {
+    /*background-color: var(--blanco);
+    border-radius: 5px;*/
+    background-color: rgba(235, 235, 235, 0);
+    border: none;
+    padding-left: 5px;
+    margin-top: 2px;
+    font-size: 15px;
+}
+
+.FLcampo-input:focus,
+.ff-contenedor input:focus,
+.ff-contenedor select:focus,
+.ff-contenedor textarea:focus {
+    /*outline: none;*/
+    padding: 5px;
+    outline-width: 1px;
+    outline-color: #124f87;
+    background-color: #ffffff;
+}
+
+.ff-contenedor input,
+.ff-contenedor select,
+.ff-contenedor textarea {
+    width: 100%;
+}
+
+.formularioFL-campo > label {
+    text-align: center;
+    color: #ffffff;
+}
+
+.ff-fila {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: end;
+}
+
+.ff-fila > img {
+    cursor: pointer;
+}
+
+.acciones {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition-property: background-color, font-weight, text-style;
+    transition-duration: 0.3ms;
+}
+
+.acciones > a {
+    color: var(--dcodeAzul);
+    font-size: small;
+}
+
+.acciones > a:hover {
+    /* color: #012a50; */
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* FORMULARIOS AGENDA */
+.agenda__editar h3 {
+    font-size: 25px;
+    color: var(--dcodeAzul);
+    text-align: center;
+    font-weight: bold;
+}
+
+.agenda__formulario {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formulario__campo--agenda {
+    background-color: unset;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.formulario__campo--agenda label {
+    color: var(--dcodeAzul);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.formulario__campo--agenda input,
+.formulario__campo--agenda textarea {
+    all: unset;
+    width: 100%;  /* Asegura que ocupe el 100% del ancho disponible */
+}
+
+.formulario__campo--agenda textarea {
+    min-height: 150px; /* Altura mínima para la textarea */
+    flex-grow: 1; /* Hace que la textarea crezca para llenar el espacio disponible */
+    resize: vertical; /* Permite que el usuario ajuste la altura de la textarea */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+.formulario__campo--agenda select {
+    background-color: unset;
+    border: none;
+}
+
+.agenda__formulario input[readonly] {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+.agenda__formulario input[type="submit"] {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dcodeAzul);
+    border: none;
+    color: var(--blanco);
+    font-size: 20px;
+    font-weight: regular;
+    padding: 10px 20px;
+    border-radius: 2.5px;
+    cursor: pointer;
+    transition: background-color 0.3s, font-weight 0.3s;
+}
+
+.agenda__formulario input[type="submit"]:hover {
+    background-color: #0f3e6e;
+    font-weight: bold;
+}
